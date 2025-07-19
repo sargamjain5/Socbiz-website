@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 999;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 60px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 4px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00c286;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #00c286;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.hero {
+  padding-top: 150px; /* navbar height + spacing */
+  text-align: center;
+  color: #424242;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+
+.center-logo {
+  height: 150px;
+  margin-bottom: 1.5rem;
+}
+
+.hover-effect {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hover-effect span {
+  color: #424242;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.hover-effect span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background-color: #00c286;
+  transition: width 0.3s ease;
+}
+
+.hover-effect span:hover {
+  color: #00c286;
+}
+
+.hover-effect span:hover::after {
+  width: 100%;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  font-size: 1.3rem;
+  color: #444;
+}
+
+
+.arrow {
+  font-size: 2rem;
+  color: #555;
+  margin-top: 0.1rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.featured-events {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.featured-events h2 {
+  font-size: 36px;
+  color: #00c16b;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.event-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.event-card {
+  background-color: #fff;
+  width: 300px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.event-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.event-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.event-card .date {
+  color: #00c16b;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.event-card p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.analysis{
+    margin-top: 60px;
+
+}
+.PM{
+    max-height: 480px;
+}
+.achievements-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.achievements-section h2 {
+  font-size: 36px;
+  color: #00c16b;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.achievement-card {
+  background-color: #fff;
+  border: 1.5px solid #00c16b;
+  border-radius: 10px;
+  padding: 25px 30px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.achievement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.achievement-card p {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.site-footer {
+  background-color: #dcfef0;
+  padding: 60px 0; /* remove side padding */
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* side padding inside centered content */
+}
+
+
+.footer-left {
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.footer-left p {
+  font-size: 16px;
+  color: #000;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 30px;
+}
+
+.footer-links h4,
+.footer-socials h4 {
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-socials {
+  margin-bottom: 50px;
+}
+
+.social-icons a {
+  margin: 0 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 40px;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.location p{
+  font-size: 13px;
+  margin-top: 0.5vh;
+}

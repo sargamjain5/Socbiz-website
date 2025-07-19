@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Section</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: white;
+      color: #333;
+    }
+
+    .contact-section {
+      padding: 70px 30px;
+      
+    }
+
+    .contact-container {
+      
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      gap: 80px;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .contact-form {
+      margin-top: 10vh;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-form h2 {
+      color: #00C781;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      margin-bottom: 15px;
+      padding: 12px 15px;
+      font-size: 15px;
+      border: 2px solid #00C781;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .contact-form button {
+      background-color: #00C781;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #009f67;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+      margin-top: 10vh;
+    }
+
+    .contact-info h2 {
+      color: #00C781;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin: 15px 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info a {
+      color: #00C781;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .icon {
+      width: 20px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+        <div class="logo">
+            <img src="assets/Society.png" alt="Society of Business Logo" />
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <!-- Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <input type="text" placeholder="Subject" />
+            <textarea placeholder="Message" rows="5"></textarea>
+            <a href="mailto:share@iit.ac.in?subject=SocBiz%20Contact%20Form" style="text-decoration: none;">
+                <button type="button">Send</button>
+            </a>
+        </form>
+
+      </div>
+
+      <!-- Info -->
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><img src="assets/location.png" alt="Location" class="icon" /> Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+        <p><img src="assets/mail.png" alt="Email" class="icon" /> <a href="mailto:share@iit.ac.in">share@iit.ac.in</a></p>
+        <p><img src="assets/Phone.png" alt="Phone" class="icon" /> +91 70175XXXXX</p>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer">
+
+
+  <div class="footer-container">
+    
+    <!-- Left section -->
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+
+    <!-- Center section -->
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right section -->
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

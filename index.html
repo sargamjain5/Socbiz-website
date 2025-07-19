@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Society of Business</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script defer src="script.js"></script>
+  <style>
+    .main-container {
+  display: flex;
+  margin-top: 10vh;
+}
+
+.project-nav {
+  position: relative;
+  top: 0; /* No need to offset from top anymore */
+  left: 0;
+  width: 450px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0);
+  height: 80vh;
+  overflow-y: auto;
+  display: block; /* Make sure it's visible */
+  align-content: center;
+  align-self: center;
+}
+.project-nav.visible {
+  display: block;
+}
+
+.project-nav ul {
+  list-style: none;
+  padding: 30px;
+}
+
+.project-nav li {
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.project-nav li.active {
+  font-weight: bold;
+  color: #00f964;
+}
+
+.project-details {
+  margin-left: 210px; /* equal to .project-nav width + margin */
+  margin-right: 40px;
+  padding: 100px 60px 60px;
+  flex: 1;
+  text-align: left;
+}
+
+
+.projects {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 6rem;
+  margin-bottom: 70px;
+}
+
+.project img{
+  width: 100%;
+  max-width: 100px;
+  height: 100%;
+  margin-bottom: 1.2rem;
+  display: block;
+  object-fit: cover;
+  align-self: center;
+}
+.project img.CoverSureimg {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  display: block;
+  object-fit: cover;
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="hero">
+  <section class = "main-page">
+    <div class="hero-content">
+      <img src="assets/socbizLogo.png" class="center-logo" alt="Center Logo" />
+      <h1 class="hover-effect">
+        <span>IDEATE.</span>
+        <span>STRATEGIZE.</span>
+        <span>ANALYSE.</span>
+      </h1>
+      <p>
+        Driven by passion and purpose, we cultivate the next generation of business leaders across
+        <b>Consulting</b>, <b>Product Management</b>, and <b>Analytics</b> at IIT Roorkee.
+      </p>
+      <div class="projects">PROJECTS</div>
+      <div class="arrow">⌄</div>
+    </div>
+  </section>
+
+    <main class="main-container">
+    <nav class="project-nav">
+      <ul>
+        <li data-target="project-sec"><b>PROJECTS</b></li>
+        <li data-target="tvelp">Tvelp</li>
+        <li data-target="coversure">CoverSure</li>
+        <li data-target="saintgobain">Systra & Saint Gobain</li>
+        <li data-target="criminal">Criminal Investigation</li>
+      </ul>
+    </nav>
+
+    <div class="project-details">
+      <article class="project" id="tvelp">
+        <img src ="assets/Tvelp.png" class="tvelpimg">
+        <p>International shopping platform bridging product access gaps between countries.</p>
+      </article>
+      <article class="project" id="coversure">
+        <img src ="assets/Coversure.png" class="CoverSureimg">
+        <p>AI-first InsurTech startup solving penetration and personalization in India.</p>
+      </article>
+      <article class="project" id="saintgobain">
+        <img src ="assets/ SaintGobain.png" class="CoverSureimg">
+        <p>Collaborated with global leaders to deliver data-driven strategic insights.</p>
+      </article>
+      <article class="project" id="criminal">
+        <h2>Criminal Investigation Automation</h2>
+        <p>Automated pattern recognition to reduce delays in tracking criminal cases.</p>
+      </article>
+    </div>
+  </main>
+  <section class="text"><p>We regularly engage in consulting, analytics, and product 
+    management projects with startups, corporates, and non-profits.
+    Interested in collaborating? Contact us</p>
+  </section>
+  <section class="featured-events">
+    <h2>Featured Events</h2>
+    <div class="event-cards">
+
+        <div class="event-card">
+        <img src="assets/Consult.png" alt="Consulting Bootcamp">
+        <h3>Conquest</h3>
+        <p class="date">July 15, 2025</p>
+        <p>Kickstart your consulting journey with industry experts and real case studies.</p>
+        </div>
+
+        <div class="event-card">
+        <img src="assets/PM101.png" class="PM" alt="Product Management 101">
+        <h3>Business Baazigar</h3>
+        <p class="date">August 2, 2025</p>
+        <p>Learn the essentials of product management from top PMs in the industry.</p>
+        </div>
+
+        <div class="event-card">
+        <img src="assets/analytics.png" class="analysis" alt="Analytics for Business">
+        <h3>Winter Analytics</h3>
+        <p class="date">August 20, 2025</p>
+        <p>Hands-on workshop on business analytics tools and techniques.</p>
+        </div>
+      
+
+    </div>
+    </section>
+    <section class="achievements-section">
+        <h2>Achievements & Legacy</h2>
+
+        <div class="achievement-card">
+            <p><strong>Winners in global case competitions and Inter-IIT awards</strong> (Gold in Analytics Challenge 2023, Silver and Bronze in Product and Analytics).</p>
+        </div>
+
+        <div class="achievement-card">
+            <p><strong>Collaborative research projects</strong>, including automation for criminal investigation and decarbonization trends with global companies.</p>
+        </div>
+
+        <div class="achievement-card">
+            <p><strong>Hosted flagship events</strong> like Business Baazigar and Pan India Case Competition with 3,000+ participants.</p>
+        </div>
+    </section>
+<footer class="site-footer">
+
+
+  <div class="footer-container">
+    
+    <!-- Left section -->
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+
+    <!-- Center section -->
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right section -->
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+      </div>
+      <h4>Location:</h4>
+      <div class = "location">
+        <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+    </div> 
+    </div>
+    </div>
+
+ 
+
+  </div>
+</footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Who are We?</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+    .fade-in-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    }
+
+    .fade-in-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 10px;
+    }
+
+    /* Who Are We Section */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 13vh;
+      
+    }
+
+    .about-text {
+      flex: 1 1 60%;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .about-text .secondary {
+      font-weight: 500;
+      color: #555;
+      margin-top: 20px;
+    }
+
+    .about-logo {
+      flex: 1 1 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-logo img {
+      max-width: 160px;
+      height: auto;
+    }
+
+    /* Our Verticals Section */
+    .Verticals {
+      margin-top: 100px;
+    }
+
+    .Verticals h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .project-wrapper {
+      display: flex;
+      gap: 70px;
+      flex-wrap: wrap;
+    }
+
+    .project-nav {
+      width: 250px;
+      padding: 20px;
+      border-right: 1px solid #eee;
+      align-self: center;
+      
+    }
+
+    .project-nav ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .project-nav li {
+      padding: 10px 0;
+      cursor: pointer;
+      margin-bottom: 40px;
+      color: #666;
+      transition: color 0.3s ease, font-weight 0.3s ease;
+    }
+
+    .project-nav li.active {
+      font-weight: bold;
+      color: #02e75e;
+    }
+
+    .project-details {
+      flex: 1;
+      padding: 0 20px;
+    }
+
+    .project {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 60px;
+        flex-wrap: wrap;
+        text-align: justify;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        padding: 2vh;
+    }
+
+
+
+    .project:hover {
+        transform: scale(1.02);
+        box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+        padding: 2vh;
+        border-radius: 13px;
+    }
+
+    .project h4 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .project-left {
+    flex: 0 0 30%;
+    display: flex;
+    justify-content: center;
+    }
+    .project-right {
+        flex: 1;
+    }
+    .project p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .project-img {
+       max-width: 100%;
+       height: auto;
+       border-radius: 8px;
+    }
+
+.connect-section {
+  background-color: #f1fdf8;
+  padding: 50px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 50px rgba(0, 253, 101, 0.2);
+  max-width: 900px;
+  margin: 60px auto;
+  margin-top: 3vh;
+  text-align: center;
+  border-style: solid;
+  border-color: #00C781;
+  border-width: 1px;
+}
+
+.connect-container h2 {
+  color: #00c389;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.connect-container p {
+  color: #000;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.social-icons img.small{
+    width: 90px;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+.team-section {
+      padding: 10vh 2vw;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .team-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #00c389;
+      margin-bottom: 50px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: #fafafa;
+      padding: 10px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
+
+    .team-photo {
+      width: 140px;
+      height: 160px;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #d3d3d3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-member h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 8px 0 2px;
+    }
+
+    .team-member p {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0;
+    }
+    .social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+  filter: grayscale(1);
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  filter: none;
+}
+
+
+
+
+
+    @media (max-width: 768px) {
+      .project-wrapper {
+        flex-direction: column;
+      }
+
+      .project-nav {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      .project-details {
+        padding: 20px 0;
+      }
+
+      .project-img {
+        max-width: 100%;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Who Are We Section -->
+  <section>
+    <div class="about-container fade-in-scroll">
+      <div class="about-text">
+        <h2>Who are We?</h2>
+        <p>
+          Society of Business, IIT Roorkee (SocBiz IITR) is a premier student organization dedicated to developing proficient problem solvers and future business leaders in Consulting, Product Management, and Data Analytics. Established in 2009 and rebranded in 2023, SocBiz IITR fosters an environment that encourages the exploration and application of business acumen to real-world challenges.
+        </p>
+        <p class="secondary">
+          We collaborate with industry leaders, engage in impactful projects, and offer a platform for students to learn, experiment, and excel. Our initiatives include comprehensive training modules, workshops with industry experts, and participation in national and international competitions.
+        </p>
+      </div>
+      <div class="about-logo">
+        <img src="assets/socbizLogo.png" alt="SocBiz Logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Verticals Section -->
+  <section class="Verticals fade-in-scroll">
+    <h1>Our Verticals</h1>
+    <div class="project-wrapper">
+      <nav class="project-nav">
+        <ul>
+          <li class="active" data-target="consulting">Consulting</li>
+          <li data-target="product-management">Product Management</li>
+          <li data-target="data-analytics">Data Analytics</li>
+        </ul>
+      </nav>
+
+      <div class="project-details">
+        <div class="project" id="consulting">
+           <div class="project-left">
+           <img src="assets/consult copy.png" class="project-img" alt="Consulting"></div>
+           <div class="project-right"><p>
+            We train students in structured problem solving, guesstimates, and case cracking, preparing them for consulting roles at top firms. Members work on live projects and gain real-world experience through case competitions and mentorship.
+          </p>
+        </div>
+       </div>
+
+        <div class="project" id="product-management">
+        <div class="project-left">
+          <img src="assets/Product.png" class="project-img" alt="Product Management"></div>
+          <div class="project-right"><p>
+            We guide students through the fundamentals of product thinking, user-centric design, wireframing, and roadmap building. Our workshops and case-based modules empower them to think like product managers from day one.
+          </p></div>
+        </div>
+
+        <div class="project" id="data-analytics">
+        <div class="project-left">
+          <img src="assets/Analytics copy.png" class="project-img" alt="Data Analytics"></div>
+          <div class="project-right"><p>
+            From Excel and SQL to Python and Machine Learning, we offer hands-on training to help students turn data into decisions. Members work on analytics projects, participate in datathons, and develop dashboards with real datasets.
+          </p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Meet Our Team Section -->
+<section class="team-section fade-in-scroll">
+  <h2 class="team-title">Meet Our Team</h2>
+  <div class="team-grid">
+
+    <!-- Presidents -->
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Dhruv" alt="Dhruv Agrawal"></div>
+    <h4>Dhruv Agrawal</h4>
+    <p>President</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/abhishek" alt="Abhishek Mittal"></div><h4>Abhishek Mittal</h4><p>President</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/divyansh" alt="Divyansh Taya"></div><h4>Divyansh Taya</h4><p>President</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/agam" alt="Agam Pandey"></div><h4>Agam Pandey</h4><p>Vice-President</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/eva.jpg" alt="Eva Rajput"></div><h4>Eva Rajput</h4><p>Vice-President</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/satyam.jpg" alt="Satyam Sinha"></div><h4>Satyam Sinha</h4><p>Vice-President</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+
+    <!-- Project Managers -->
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Kavya_Rajput_Product_3y.jpg" alt="Kavya Rajput"></div><h4>Kavya Rajput</h4><p>Project Manager</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Vatsal Tyagi_Product_3rd.jpg" alt="Vatsal Tyagi"></div><h4>Vatsal Tyagi</h4><p>Project Manager</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/vigneshwar.jpg" alt="Vigneshwar Nadar"></div><h4>Vigneshwar Nadar</h4><p>Project Manager</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/aakarsh.jpg" alt="Aakarsh Agrawal"></div><h4>Aakarsh Agrawal</h4><p>Project Manager</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Chesta_consult.jpg" alt="Chesta Tiwari"></div><h4>Chesta Tiwari</h4><p>Project Manager</p>
+        <div class="social-icons">
+            <a href="mailto:dhruv@example.com" target="_blank">
+            <img src="assets/mail1.png" alt="Gmail">
+            </a>
+            <a href="https://github.com/dhruv" target="_blank">
+            <img src="assets/github.png" alt="GitHub">
+            </a>
+            <a href="https://linkedin.com/in/dhruv" target="_blank">
+            <img src="assets/linkedin.png" alt="LinkedIn">
+            </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/PriyanshuChauhan_Analytics_3rd.jpg" alt="Priyanshu Chauhan"></div><h4>Priyanshu Chauhan</h4><p>Project Manager</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Rishita_Rathi_Analytics_3Y.jpg" alt="Rishita Rathi"></div><h4>Rishita Rathi</h4><p>Project Manager</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/surya.jpg" alt="Surya"></div><h4>Surya</h4><p>Project Manager</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+
+    <!-- Startup & Outreach -->
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Shivna_Product_3Y.jpg" alt="Shivna Rathore"></div><h4>Shivna Rathore</h4><p>Startup & Outreach</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Aman_Product_3y.jpg" alt="Aman Kumar"></div><h4>Aman Kumar</h4><p>Startup & Outreach</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Shubh_Consult.jpg" alt="Shubh Saxena"></div><h4>Shubh Saxena</h4><p>Startup & Outreach</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/VardayineeSandoo_consult_3y.jpg" alt="Vardayinee"></div><h4>Vardayinee</h4><p>Startup & Outreach</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/TanmayTopkhanewale_Analytics_2025.jpg" alt="Tanmay Topkhanevale"></div><h4>Tanmay Topkhanevale</h4><p>Startup & Outreach</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/amogh" alt="Amogh Kapoor"></div><h4>Amogh Kapoor</h4><p>Startup & Outreach</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+
+    <!-- Design -->
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/poorvi_singhal.jpg" alt="Poorvi Singhal"></div><h4>Poorvi Singhal</h4><p>Design & Media Manager</p><p>Passing Year: 2028</p> <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+
+    <!-- Members -->
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/AaryanKumar_Consult_2Y.png" alt="Aryan Kumar"></div><h4>Aryan Kumar</h4><p>Member</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/KrishPatel_Consult_2y.png" alt="Krish Patel"></div><h4>Krish Patel</h4><p>Member</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/MankiratSingh_consult_4y.jpg" alt="Mankirat Singh"></div><h4>Mankirat Singh</h4><p>Member</p>    <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/SargamJain_Consult&Design_2Y.jpg" alt="Sargam"></div>
+    <h4>Sargam Jain</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/Shreya Waghmode_Analytics_.jpg" alt="Shreya"></div>
+    <h4>Shreya Waghmode</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/keshavbansal_consult_2025.jpg" alt="Keshav"></div>
+    <h4>Keshav Bansal</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/ArjunKumar_Analytics_2025.jpg" alt="Arjun Kumar"></div>
+    <h4>Arjun Kumar</h4>
+    <p>Member</p>
+    <p>Passing Year: 2029</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/ShachiMurarka_consult_2Yjpeg.jpeg" alt="Shachi"></div>
+    <h4>Shachi Murarka</h4>
+    <p>Member</p>
+    <p>Passing Year: 2029</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/Aastha_Product2y.jpg" alt="Aastha"></div>
+    <h4>Aastha Gour</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/PaavniKhattri_Analytics_2025.jpg" alt="Paavni"></div>
+    <h4>Paavni Khattri</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Mudassir_Design_2nd_yr.jpg" alt="Mudassir"></div>
+    <h4>Muddasir Ansari</h4>
+    <p>Member</p>
+    <p>Passing Year: 2029</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/Rudraa _consult_2025.JPG" alt="Rudra"></div>
+    <h4>Rudra</h4>
+    <p>Member</p>
+    <p>Passing Year: 2029</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/TapasGupta_Consult_2Y.png" alt="Tapas"></div>
+    <h4>Tapas Gupta</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/VedantKabra_Product_2Y.jpg" alt="Vedant"></div>
+    <h4>Vedant Kabra</h4>
+    <p>Member</p>
+    <p>Passing Year: 2029</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/TanishMangla_product_2y.jpg" alt="Tanish"></div>
+    <h4>Tanish Mangla</h4>
+    <p>Member</p>
+    <p>Passing Year: 2029</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/Aric_Product_2y.JPG" alt="Aric"></div>
+    <h4>Aric</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/AYUSH_Analytics_2nd_yr.jpg" alt="Ayush"></div>
+    <h4>Ayush Goyal</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/kunalchawla_consult_2y.png" alt="Kunal"></div>
+    <h4>Kunal Chawla</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/Manya_Analytics_2Y.jpg" alt="Manya"></div>
+    <h4>Manya</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/Moulik_Analytics_5y.jpg" alt="Moulik"></div>
+    <h4>Moulik</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/PrachiGupta_Analytics3y.jpg" alt="Prachi"></div>
+    <h4>Prachi Gupta</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/Soumil_2y_Product_2025.jpg" alt="Soumil Saxena"></div>
+    <h4>Soumil Sexena</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/SakshamSureka_analytics_2y.webp" alt="SakshamSureka"></div>
+    <h4>Saksham Sureka</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/RounakSambhwani_2y_Analytics.jpg" alt="Rounak Sambhwani"></div>
+    <h4>Rounak Sambhwani</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/ShagunBhatia_Product_2y.jpg" alt="Shagun"></div>
+    <h4>Shagun Bhatia</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/Harshit_Product_5y.jpg" alt="Harshit"></div>
+    <h4>Harshit</h4>
+    <p>Member</p>
+    <p>Passing Year: 2026</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+
+<div class="team-member"><div class="team-photo"><img src="assets/memberpics/AdityaSaini_product_2y.jpg" alt="Aditya"></div>
+    <h4>Aditya Saini</h4>
+    <p>Member</p>
+    <p>Passing Year: 2028</p>
+        <div class="social-icons">
+        <a href="mailto:dhruv@example.com" target="_blank">
+          <img src="assets/mail1.png" alt="Gmail">
+        </a>
+        <a href="https://github.com/dhruv" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/dhruv" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="site-footer">
+<div class="footer-container">
+    
+    <!-- Left section -->
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+
+    <!-- Center section -->
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right section -->
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".toggle-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+      const hiddenMembers = document.querySelectorAll(`#${targetId} .hidden`);
+      
+      hiddenMembers.forEach(member => {
+        member.classList.toggle("hidden");
+      });
+
+      button.textContent = button.textContent === "Show More" ? "Show Less" : "Show More";
+    });
+  });
+});
+
+const fadeElements = document.querySelectorAll('.fade-in-scroll');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target); // animate only once
+      }
+    });
+  }, {
+    threshold: 0.2 // trigger when 20% of the element is visible
+  });
+
+  fadeElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
