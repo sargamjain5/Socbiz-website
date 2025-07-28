@@ -177,6 +177,11 @@ html, body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  text-decoration: none;
+}
+.event-card a{
+  text-decoration: none;
+  color: inherit;
 }
 
 .event-card:hover {
