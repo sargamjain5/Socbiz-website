@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Who are We?</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -37,7 +37,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 40px;
-      margin-top: 13vh;
+      margin-top: 12vh;
       
     }
 
@@ -46,16 +46,17 @@
     }
 
     .about-text h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 20px;
       color: #000;
     }
 
     .about-text p {
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 1.2rem;
+      line-height: 1.4;
       color: #444;
+      text-align: justify;
     }
 
     .about-text .secondary {
@@ -65,14 +66,15 @@
     }
 
     .about-logo {
-      flex: 1 1 30%;
+      flex: 1 1 25%;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-left: 5vw ;
     }
 
     .about-logo img {
-      max-width: 160px;
+      max-width: 330px;
       height: auto;
     }
 
@@ -99,7 +101,7 @@
       padding: 20px;
       border-right: 1px solid #eee;
       align-self: center;
-      
+      font-size: larger;
     }
 
     .project-nav ul {
@@ -137,14 +139,6 @@
         padding: 2vh;
     }
 
-
-
-    .project:hover {
-        transform: scale(1.02);
-        box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-        padding: 2vh;
-        border-radius: 13px;
-    }
 
     .project h4 {
       font-size: 2rem;
@@ -344,6 +338,7 @@
       <ul class="nav-links">
         <li><a href="index.html" >Home</a></li>
         <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
         <li><a href="about.html" class="active">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>

@@ -46,7 +46,7 @@ html, body {
 .nav-links a {
   color: black;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 300;
   padding-bottom: 4px;
   position: relative;
   transition: color 0.3s ease;
@@ -87,6 +87,7 @@ html, body {
 .center-logo {
   height: 150px;
   margin-bottom: 1.5rem;
+  margin-top: 4vh;
 }
 
 .hover-effect {

@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Society of Business</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script defer src="script.js"></script>
+  <script defer src="js/script.js"></script>
+  
   <style>
 
     .main-container {
@@ -23,13 +24,14 @@ body{
   top: 0; /* No need to offset from top anymore */
   left: 0;
   width: 450px;
-  padding: 40px;
+  padding: 20px;
   background-color: rgba(255, 255, 255, 0);
   height: 80vh;
   overflow-y: auto;
   display: block; /* Make sure it's visible */
   align-content: center;
   align-self: center;
+  font-size: larger;
 }
 .project-nav.visible {
   display: block;
@@ -52,26 +54,28 @@ body{
 }
 
 .project-details {
-  margin-left: 210px; /* equal to .project-nav width + margin */
-  margin-right: 40px;
-  padding: 100px 60px 60px;
+  margin-left: 190px; /* equal to .project-nav width + margin */
+  margin-right: 100px;
+  padding: 40px 60px 30px;
   flex: 1;
-  text-align: left;
+  text-align: justify;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
 }
 
 
 .projects {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1rem;
   margin-top: 6rem;
-  margin-bottom: 70px;
+  margin-bottom: 90px;
 }
 
 .project img{
   width: 100%;
   max-width: 100px;
   height: 100%;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
   display: block;
   object-fit: cover;
   align-self: center;
@@ -85,6 +89,36 @@ body{
   display: block;
   object-fit: cover;
 }
+.stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px;
+  margin-top: 20vh;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 20px 20px;
+  border-radius: 8px;
+  width: 270px;
+  background-color: white;
+}
+
+
+    .stat-number {
+        font-size: 5rem;
+        font-weight: bold;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+        font-weight: bold;
+        color: gray;
+        letter-spacing: 1px;
+    }
+
+   
 
   </style>
 </head>
@@ -97,6 +131,7 @@ body{
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -116,11 +151,22 @@ body{
         Driven by passion and purpose, we cultivate the next generation of business leaders across
         <b>Consulting</b>, <b>Product Management</b>, and <b>Analytics</b> at IIT Roorkee.
       </p>
-      <div class="projects">PROJECTS</div>
-      <div class="arrow">⌄</div>
     </div>
   </section>
-
+  <section class="stats-section">
+    <div class="stat-card">
+        <div class="stat-number" data-target="25">0</div>
+        <div class="stat-label">STARTUPS</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number" data-target="30">0</div>
+        <div class="stat-label">PROJECTS</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number" data-target="30">0</div>
+        <div class="stat-label">CASE COMPETITION WINS</div>
+    </div>
+</section>
     <main class="main-container">
     <nav class="project-nav">
       <ul>
@@ -153,7 +199,7 @@ body{
   </main>
   <section class="text"><p>We regularly engage in consulting, analytics, and product 
     management projects with startups, corporates, and non-profits.
-    Interested in collaborating? Contact us</p>
+    Interested in collaborating? Contact us!</p>
   </section>
   <section class="featured-events">
     <h2>Featured Events</h2>
@@ -201,6 +247,7 @@ body{
             <p><strong>Hosted flagship events</strong> like Business Baazigar and Pan India Case Competition with 3,000+ participants.</p>
         </div>
     </section>
+
 <footer class="site-footer">
 
 
@@ -242,8 +289,37 @@ body{
 
   </div>
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".stat-number");
+  const speed = 2000; // smaller = faster
 
+  const startCounting = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    const count = +counter.innerText;
+    const increment = target / speed;
 
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      requestAnimationFrame(() => startCounting(counter));
+    } else {
+      counter.innerText = target + "+"; // Add + at the end
+    }
+  };
 
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCounting(entry.target);
+        obs.unobserve(entry.target); // run only once
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+});
+</script>
 </body>
 </html>
