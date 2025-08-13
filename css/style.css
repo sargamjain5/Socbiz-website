@@ -350,3 +350,106 @@ html, body {
   font-size: 13px;
   margin-top: 0.5vh;
 }
+/* === RESPONSIVE SPACING ADJUSTMENTS === */
+
+/* Large screens (default) already fine */
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .hover-effect {
+    font-size: 2.5rem;
+    gap: 0.5rem;
+  }
+
+  .projects-grid {
+    gap: 1rem;
+  }
+
+  .project-card {
+    min-width: 300px;
+    flex: 0 0 40%;
+  }
+
+  .stats-section {
+    gap: 20px;
+    padding: 40px;
+  }
+}
+
+/* Small screens (mobiles) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    padding-top: 100px;
+  }
+
+  .center-logo {
+    height: 120px;
+    margin-top: 2vh;
+  }
+
+  .hover-effect {
+    font-size: 2rem;
+    gap: 0.3rem;
+    text-align: center;
+  }
+
+  .projects-grid {
+    gap: 0.8rem;
+  }
+
+  .project-card {
+    min-width: 260px;
+    flex: 0 0 80%;
+  }
+
+  .stats-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    margin-top: 10vh;
+  }
+
+  .stat-number {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .featured-events {
+    padding: 40px 10px;
+  }
+
+  .event-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .footer-left, .footer-links, .footer-socials {
+    text-align: center;
+  }
+}
