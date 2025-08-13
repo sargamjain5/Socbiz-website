@@ -9,37 +9,34 @@
   <script defer src="js/script.js"></script>
   
   <style>
-.intern-card-section {
-  display: flex;
-  justify-content: center;
-  padding: 50px 20px;
-  margin-top: 6vh;
+.intern-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 14vh;
 }
 
 .intern-card {
-  background: #ffffff;
-  border: 2px solid #ecfff7;
-  border-radius: 12px;
-  padding: 25px;
-  max-width: 400px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center; /* center everything */
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
 }
 
 .intern-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 193, 107, 0.2);
 }
 
-/* Profile Image */
 .intern-photo {
   width: 120px;
   height: 120px;
   margin: 0 auto 15px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #00c16b;
+  border: 3px solid #4caf50;
 }
 
 .intern-photo img {
@@ -49,38 +46,34 @@
 }
 
 .intern-name {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #00c16b;
-  margin-bottom: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
 }
 
 .golden-tip {
-  font-style: italic;
   font-size: 0.95rem;
+  color: #666;
+  font-style: italic;
   margin-bottom: 15px;
-  color: #444;
 }
 
 .intern-details {
   font-size: 0.9rem;
-  color: #333;
   margin-bottom: 15px;
-  line-height: 1.4;
+  color: #333;
 }
 
 .read-more {
-  display: inline-block;
-  color: #00c16b;
-  font-weight: 600;
   text-decoration: none;
-  transition: color 0.3s ease;
+  color: #4caf50;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .read-more:hover {
-  text-decoration: underline;
-  color: #00965e;
+  color: #388e3c;
 }
+
 
 
   </style>
@@ -92,29 +85,63 @@
         <img src="assets/Society.png" alt="Society of Business Logo" />
       </div>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html" >Home</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="blogs.html">Intern Diaries</a></li>
+        <li><a href="blogs.html" class="active">Intern Diaries</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
-<section class="intern-card-section">
+<section class="intern-cards-container">
+  <!-- Vinay Joshi -->
   <div class="intern-card">
     <div class="intern-photo">
-      <img src="assets/vinay_joshi.jpg" alt="Vinay Joshi">
+      <img src="assets/memberpics/vinayjoshi" alt="Vinay Joshi">
     </div>
     <h3 class="intern-name">Vinay Joshi</h3>
-    <p class="golden-tip">💡 Golden Tip: Don’t just prepare to answer — prepare to explain your thinking.</p>
+    <p class="golden-tip">💡 Golden Tip: Treat DSA like sports — daily practice is better than weekend marathons.</p>
     <div class="intern-details">
-      <span class="role">Role: Data Analytics / Data Science</span><br>
-      <span class="company">Company: American Express (Amex)</span><br>
+      <span class="role">Role: SDE Intern</span><br>
+      <span class="company">Company: Amazon</span><br>
       <span class="season">Internship Season: 2024–25 (3rd Year)</span>
     </div>
     <a href="vinay_joshi_intern.html" class="read-more">Read Full Experience →</a>
   </div>
+
+  <!-- Hemant Reddy -->
+  <div class="intern-card">
+    <div class="intern-photo">
+      <img src="assets/memberpics/hemant" alt="Hemant Reddy">
+    </div>
+    <h3 class="intern-name">Hemant Reddy</h3>
+    <p class="golden-tip">💡 Golden Tip: Prepare domain-wise, not randomly — know exactly what each resource is strengthening.</p>
+    <div class="intern-details">
+      <span class="role">Role: Quant Intern</span><br>
+      <span class="company">Company: Goldman Sachs</span><br>
+      <span class="season">Internship Season: 2024–25 (3rd Year)</span>
+    </div>
+    <a href="hemant_reddy_intern.html" class="read-more">Read Full Experience →</a>
+  </div>
+  <!-- Kavya Rajput card -->
+<div class="intern-card">
+  <div class="intern-photo">
+    <img src="assets/memberpics/Kavya_Rajput_Product_3y.jpg" alt="Kavya Rajput">
+  </div>
+  <h3 class="intern-name">Kavya Rajput</h3>
+  <p class="golden-tip">💡 Golden Tip: For consulting, think out loud — it’s not just about the answer, but how you structure your thought process.</p>
+  <div class="intern-details">
+    <span class="role">Role: Consulting Intern</span><br>
+    <span class="company">Company: BCG</span><br>
+    <span class="season">Internship Season: 2024–25 (3rd Year, Sem 1)</span>
+  </div>
+  <a href="kavya_rajput_intern.html" class="read-more">Read Full Experience →</a>
+</div>
+
+
+  
 </section>
+
 
 
   <footer class="site-footer">
