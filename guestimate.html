@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guesstimates - More Than Just a Wild Guess</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* NOTE: Using the same styles as the Business Baazigar page */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f4f7f6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00c389;
+    }
+
+    .event-hero {
+      padding: 120px 20px 60px;
+      text-align: center;
+      background: linear-gradient(135deg, #f8fff9 0%, #e8f5e8 100%);
+    }
+
+    .event-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #00c389;
+      margin-bottom: 20px;
+    }
+
+    .event-hero .subtitle {
+      font-size: 1.5rem;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .hero-description {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-description p {
+      font-size: 1.125rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .content-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .case-study-block {
+      background: white;
+      padding: 40px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .case-study-block h2 {
+      color: #00c389;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .case-study-block h3 {
+      color: #00a86b;
+      font-size: 1.5rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #e8f5e8;
+      padding-bottom: 10px;
+    }
+
+    .case-study-block p, .case-study-block ul {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .case-study-block ul {
+        list-style-position: inside;
+        padding-left: 20px;
+    }
+
+    .answer-card {
+      background: white;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #00c389;
+    }
+
+    .answer-card h4 {
+      color: #00c389;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .answer-card .answer-type {
+        font-weight: 700;
+        color: #444;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .answer-card p, .answer-card ul {
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .data-points-section {
+      background: white;
+      padding: 60px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .data-points-section h2 {
+      text-align: center;
+      color: #00c389;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    
+    .data-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .data-item {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .data-item h4 {
+      color: #00c389;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .data-item p, .data-item ul {
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .data-item ul {
+        list-style-position: inside;
+        padding-left: 0;
+    }
+
+    .back-home-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .back-home-section h2 {
+      color: #00c389;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .back-home-btn {
+      background: #00c389;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s;
+    }
+
+    .back-home-btn:hover {
+      transform: translateY(-2px);
+      background: #00a86b;
+    }
+
+    .site-footer {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 40px 20px;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .footer-logo {
+      height: 50px;
+      margin-bottom: 15px;
+    }
+    
+    .footer-left p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #bdc3c7;
+    }
+    
+    .footer-links h4, .footer-socials h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #bdc3c7;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #00c389;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .social-icons img {
+      height: 24px;
+      transition: transform 0.3s;
+    }
+    
+    .social-icons a:hover img {
+      transform: scale(1.1);
+    }
+    
+    .location p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #bdc3c7;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html">Intern Diaries</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="event-hero">
+    <h1>Guesstimates: More Than Just a Wild Guess</h1>
+    <p class="subtitle">A Deep Dive into Estimation and Market Sizing</p>
+    <div class="hero-description">
+      <p>This resource provides a real-life consulting case study and a sample guesstimate to help you understand the core concepts. This is a typical “conceptual” case where problem identification and idea generation are tested, not just number crunching.</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT SECTION -->
+  <div class="content-section">
+
+    <!-- CASE STUDY -->
+    <div class="case-study-block">
+      <h2>Consulting Case: Whisky Manufacturer</h2>
+      <h3>Background</h3>
+      <p>The client was a first mover in promoting imported whisky in bars, discos and karaoke clubs in an emerging market about 10 years ago. They experienced tremendous success with over 30% annual growth by partnering with key outlets. However, growth has slowed to 10% per year, and profit margins are declining. The task is to understand the reasons for this slowdown and explore strategic options to rebuild growth.</p>
+
+      <h3>Solving the Case</h3>
+
+      <div class="answer-card">
+        <h4>First question: What information would you require to help explain the slowing down of growth?</h4>
+        <p><strong class="answer-type">The Good Answer:</strong> One needs to understand what has been driving the slowdown. This involves considering the market and competitive environment for whisky.</p>
+        <ul>
+          <li>The growth of the bar/disco channel is peaking.</li>
+          <li>The category has reached a high share of throat in the channel and is unlikely to grow by increasing penetration.</li>
+          <li>Competitors saw the opportunity and started to invest, eroding our client's market share.</li>
+        </ul>
+        <p><strong class="answer-type">The Excellent Answer:</strong> All of the above, but also considering the life-cycle and upgrade path for consumers as well as the aging of the brand image.</p>
+        <ul>
+          <li>The client has used the same advertising campaign for 5 years.</li>
+          <li>An aging brand image impairs the ability to recruit new consumers.</li>
+          <li>There is a lack of aspiration for consumers to up-trade to more premium SKUs.</li>
+          <li>The category life cycle is short as consumers tend to go less to bars/discos as they age.</li>
+        </ul>
+      </div>
+
+      <div class="answer-card">
+        <h4>Second question: What is driving profitability down?</h4>
+        <p><strong class="answer-type">The Good Answer:</strong> One needs to understand the market forces affecting the bottom line of luxury consumer goods.</p>
+        <ul>
+          <li>Competition has driven prices down and limited margin growth.</li>
+          <li>Trade marketing costs have increased as outlet owners have more bargaining power.</li>
+          <li>Imported goods are subject to currency fluctuations.</li>
+        </ul>
+        <p><strong class="answer-type">The Excellent Answer:</strong> All of the above, but also considering the profit-per-outlet aspect.</p>
+        <ul>
+            <li>As the business expanded, partnering with smaller and weaker outlets (with lower ROI) drove down the overall return on investment.</li>
+        </ul>
+      </div>
+
+      <div class="answer-card">
+        <h4>Third question: What are the potential strategic options?</h4>
+        <p>Here are some options that can be explored:</p>
+        <ul>
+          <li>Revitalize the brand with a new campaign to improve competitiveness.</li>
+          <li>Premiumize the market and encourage consumers to up-trade to higher value products.</li>
+          <li>Seek opportunities in rural areas and invest strategically to capture less competitive markets.</li>
+          <li>Explore new channels such as in-home or restaurant consumption.</li>
+          <li>Innovate to improve on delivery and create a competitive advantage.</li>
+          <li>Make improvements in outlet selection criteria.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SAMPLE GUESSTIMATE -->
+    <div class="case-study-block">
+      <h2>Sample Guesstimate</h2>
+      <h3>Question</h3>
+      <p>A washing machine manufacturing company wants to enter the Indian Market. Estimate the number of washing machines they would sell, assuming their market share to be 2%?</p>
+      
+      <h3>Solution</h3>
+      <p>This guesstimate should be approached from the demand side. The major users are households.</p>
+      
+      <p><strong>Population & Household Assumptions:</strong></p>
+      <ul>
+          <li>Total Population: 120 crores</li>
+          <li>Average family size: 4 members</li>
+          <li>Population Distribution: Cities (30%), Towns (25%), Villages (45%)</li>
+      </ul>
+      
+      <p><strong>Penetration Assumptions:</strong></p>
+      <ul>
+        <li><strong>Villages:</strong> 1 in 100 families have a washing machine.</li>
+        <li><strong>Cities:</strong> Poor (20% pop, 1/50 families), Medium (45% pop, 4/5 families), Rich (35% pop, 1/1 families)</li>
+        <li><strong>Towns:</strong> Poor (40% pop, minimal), Medium (40% pop, 1/5 families), Rich (20% pop, 4/5 families)</li>
+      </ul>
+      
+      <p>Based on calculations from the above data, the total number of washing machines in India is estimated to be <strong>8.37 crores</strong>.</p>
+      
+      <p><strong>Replacement Market Calculation:</strong></p>
+      <ul>
+          <li>Average age of a washing machine: 8 years</li>
+          <li>Annual replacement rate: 1/8</li>
+          <li>Company's market share: 2%</li>
+          <li>Machines sold to replacement market = 8.37 crores * (1/8) * (2/100) = <strong>2.09 lakhs</strong></li>
+      </ul>
+
+      <p><strong>New Customer Market Calculation:</strong></p>
+      <ul>
+          <li>Average market growth rate: 10%</li>
+          <li>New customers = 10% of 8.37 crores = 0.837 crores</li>
+          <li>Company's market share: 2%</li>
+          <li>Machines sold to new customers = 0.837 crores * (2/100) = <strong>1.67 lakhs</strong></li>
+      </ul>
+
+      <p><strong>Total machines sold annually = 2.09 lakhs + 1.67 lakhs = 3.76 lakhs.</strong></p>
+    </div>
+
+    <!-- COMMON DATA POINTS -->
+    <div class="data-points-section">
+      <h2>Common Data Points & Estimations</h2>
+      <div class="data-grid">
+        <div class="data-item">
+            <h4>Urban-Rural Split</h4>
+            <ul>
+                <li><strong>World:</strong> 40% Urban : 60% Rural</li>
+                <li><strong>India:</strong> 30% Urban : 70% Rural</li>
+            </ul>
+        </div>
+        <div class="data-item">
+            <h4>Income-Split in India</h4>
+            <p><strong>Urban:</strong></p>
+            <ul>
+                <li>Lower: 40%, Middle: 40%, Higher: 20%</li>
+            </ul>
+            <p><strong>Rural:</strong></p>
+            <ul>
+                <li>BPL: 20%, Lower: 30%, Middle: 40%, Upper: 10%</li>
+            </ul>
+        </div>
+        <div class="data-item">
+            <h4>Age Split (World & India)</h4>
+            <ul>
+                <li>0-14: 25%</li>
+                <li>15-25: 20%</li>
+                <li>26-59: 40%</li>
+                <li>60+: 15%</li>
+            </ul>
+        </div>
+        <div class="data-item">
+            <h4>Population Data</h4>
+            <ul>
+                <li>World: 8 billion</li>
+                <li>India: 1.4 billion (140 Cr)</li>
+                <li>USA: 330 million</li>
+                <li>Delhi: 3 Cr</li>
+            </ul>
+        </div>
+        <div class="data-item">
+            <h4>Occupation Split (India)</h4>
+            <ul>
+                <li>Working Age Population: 40%</li>
+                <li>Agriculture: 40%</li>
+                <li>Industry: 25%</li>
+                <li>Services: 35%</li>
+            </ul>
+        </div>
+        <div class="data-item">
+            <h4>Internet Penetration</h4>
+            <ul>
+                <li>Has Access: 40%</li>
+                <li>No Access: 60%</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACK TO HOME -->
+    <div class="back-home-section">
+      <h2>Explore More Resources</h2>
+      <a href="index.html" class="back-home-btn">← Back to Home</a>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <!-- Left section -->
+      <div class="footer-left">
+        <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+        <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+      </div>
+      <!-- Center section -->
+      <div class="footer-links">
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Right section -->
+      <div class="footer-socials">
+        <h4>Follow us:</h4>
+        <div class="social-icons">
+          <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+          <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="assets/Notion-logo.svg.png" alt="Notion" /></a>
+        </div>
+        <h4>Location:</h4>
+        <div class = "location">
+          <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+      </div> 
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
