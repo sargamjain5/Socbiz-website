@@ -79,92 +79,119 @@
     }
 
     /* Our Verticals Section */
-    .Verticals {
-      margin-top: 100px;
-    }
+.Verticals {
+  margin-top: 40px;
+}
 
-    .Verticals h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 50px;
-    }
+.Verticals h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-    .project-wrapper {
-      display: flex;
-      gap: 50px;
-      flex-wrap: wrap;
-    }
+/* Wrapper for nav + details */
+.project-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 
-    .project-nav {
-      width: 250px;
-      padding: 20px;
-      border-right: 1px solid #eee;
-      align-self: center;
-      font-size: larger;
-    }
+/* Side Navigation */
+.project-nav {
+  width: 200px;
+  padding: 20px;
+  border-right: 1px solid #eee;
+  align-self: center;
+  font-size: larger;
+}
 
-    .project-nav ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
+.project-nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
 
-    .project-nav li {
-      padding: 10px 0;
-      cursor: pointer;
-      margin-bottom: 40px;
-      color: #666;
-      transition: color 0.3s ease, font-weight 0.3s ease;
-    }
+.project-nav li {
+  padding: 10px 0;
+  cursor: pointer;
+  margin-bottom: 40px;
+  color: #666;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
 
-    .project-nav li.active {
-      font-weight: bold;
-      color: #02e75e;
-    }
+.project-nav li.active {
+  font-weight: bold;
+  color: #02e75e;
+}
 
-    .project-details {
-      flex: 1;
-      padding: 0 20px;
-    }
+/* Project Details Container */
+.project-details {
+  flex: 1;
+  padding: 0 10px;
+}
 
-    .project {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        margin-bottom: 40px;
-        flex-wrap: wrap;
-        text-align: justify;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        padding: 1vh;
-    }
+/* Project Card */
+.project {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  text-align: justify;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
+}
 
-    .project h4 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+.project h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
 
-    .project-left {
-    flex: 0 0 30%;
-    display: flex;
-    justify-content: center;
-    }
-    .project-right {
-        flex: 1;
-    }
-    .project p {
-      font-size: 1rem;
-      color: #444;
-      line-height: 1.6;
-      margin-top: 10px;
-    }
+.project-left {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+}
 
-    .project-img {
-       max-width: 100%;
-       height: auto;
-       border-radius: 8px;
-    }
+.project-right {
+  flex: 1;
+}
+
+.project p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.project-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Fade-in Animation */
+.fade-in-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .connect-section {
   background-color: #f1fdf8;
@@ -219,7 +246,7 @@
   transform: scale(1.1);
 }
 .team-section {
-      padding: 8vh 1vw;
+      padding: 4vh 1vw;
       text-align: center;
       background-color: #fff;
     }
@@ -302,8 +329,6 @@
   transform: scale(1.2);
   filter: none;
 }
-
-
 
 
 
@@ -404,7 +429,7 @@
     </div>
   </section>
   <!-- Meet Our Team Section -->
-<section class="team-section fade-in-scroll">
+<section class="team-section">
   <h2 class="team-title">Meet Our Team</h2>
   <div class="team-grid">
 
@@ -676,16 +701,12 @@
 
 
 <footer class="site-footer">
-
-
   <div class="footer-container">
-    
     <!-- Left section -->
     <div class="footer-left">
       <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
       <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
     </div>
-
     <!-- Center section -->
     <div class="footer-links">
       <h4>Quick links</h4>
@@ -696,7 +717,6 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
-
     <!-- Right section -->
     <div class="footer-socials">
       <h4>Follow us:</h4>
@@ -712,8 +732,6 @@
     </div> 
     </div>
     </div>
-
- 
 
   </div>
 </footer>
