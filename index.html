@@ -10,7 +10,7 @@
   
   <style>
 
-    .main-container {
+.main-container {
   display: flex;
   margin-top: 10vh;
 }
@@ -19,76 +19,86 @@ body{
   background-repeat: no-repeat;
 }
 
-.project-nav {
-  position: relative;
-  top: 0; /* No need to offset from top anymore */
-  left: 0;
-  width: 450px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0);
-  height: 80vh;
-  overflow-y: auto;
-  display: block; /* Make sure it's visible */
-  align-content: center;
-  align-self: center;
-  font-size: larger;
-}
-.project-nav.visible {
-  display: block;
+/* === Projects Section Styling === */
+.projects-section {
+  padding: 4rem 0;
+  background: white; /* Light background for contrast */
 }
 
-.project-nav ul {
-  list-style: none;
-  padding: 30px;
+.section-title {
+  font-size: 36px;
+  color: #00c16b;
+  margin-bottom: 40px;
+  font-weight: 700;
 }
 
-.project-nav li {
-  padding: 10px;
-  cursor: pointer;
-  margin-bottom: 20px;
+/* Container spacing */
+.projects-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.project-nav li.active {
-  font-weight: bold;
-  color: #00f964;
+/* Horizontal scrolling container */
+.projects-grid {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.6rem;
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
 }
 
-.project-details {
-  margin-left: 190px; /* equal to .project-nav width + margin */
-  margin-right: 100px;
-  padding: 40px 60px 30px;
-  flex: 1;
-  text-align: justify;
-  margin-top: 3vh;
-  margin-bottom: 3vh;
+/* Hide scrollbars for a cleaner look */
+.projects-grid::-webkit-scrollbar {
+  display: none;
+}
+.projects-grid {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Card styles */
+.project-card {
+  flex: 0 0 25%; /* 4 per row on desktop */
+  min-width: 400px;
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border: 2px solid transparent; /* Start invisible border */
+  scroll-snap-align: start;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: #00c16b; /* Smooth border reveal */
+  box-shadow: 0 6px 20px rgba(0, 193, 107, 0.25); /* Soft green glow */
 }
 
 
-.projects {
-  font-weight: 400;
-  font-size: 1rem;
-  margin-top: 6rem;
-  margin-bottom: 90px;
+/* Logo area */
+.project-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 1rem;
 }
 
-.project img{
-  width: 100%;
-  max-width: 100px;
-  height: 100%;
-  margin-bottom: 1.5rem;
-  display: block;
-  object-fit: cover;
-  align-self: center;
+.project-logo-img {
+  max-height: 80px;
+  object-fit: contain;
 }
-.project img.CoverSureimg {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 1.2rem;
-  display: block;
-  object-fit: cover;
+
+/* Description */
+.project-description {
+  line-height: 1.5;
+  color: #555;
 }
+
+
+
+
 .stats-section {
   display: flex;
   justify-content: center;
@@ -102,21 +112,35 @@ body{
   padding: 20px 20px;
   border-radius: 8px;
   width: 270px;
-  background-color: white;
+  background-color: #05C898;
+}
+.stat-card-highlight {
+  text-align: center;
+  padding: 20px 20px;
+  border-radius: 8px;
+  width: 270px;
+  background-color: #ffffff;
+  border-color: #05C898;
+  border-width: 2px;
+  border-style: solid;
 }
 
 
     .stat-number {
         font-size: 5rem;
         font-weight: bold;
+        color: rgb(2, 2, 2);
     }
+
 
     .stat-label {
         font-size: 1rem;
         font-weight: bold;
-        color: gray;
+        color: rgb(0, 0, 0);
         letter-spacing: 1px;
     }
+
+
 
    
 
@@ -131,7 +155,7 @@ body{
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="blogs.html">Intern Diaries</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -158,7 +182,7 @@ body{
         <div class="stat-number" data-target="25">0</div>
         <div class="stat-label">STARTUPS</div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card-highlight">
         <div class="stat-number" data-target="30">0</div>
         <div class="stat-label">PROJECTS</div>
     </div>
@@ -167,36 +191,54 @@ body{
         <div class="stat-label">CASE COMPETITION WINS</div>
     </div>
 </section>
-    <main class="main-container">
-    <nav class="project-nav">
-      <ul>
-        <li data-target="project-sec"><b>PROJECTS</b></li>
-        <li data-target="tvelp">Tvelp</li>
-        <li data-target="coversure">CoverSure</li>
-        <li data-target="saintgobain">Systra & Saint Gobain</li>
-        <li data-target="criminal">Criminal Investigation</li>
-      </ul>
-    </nav>
+   
+<section class="projects-section">
+  <div class="container">
+    <h2 class="section-title">OUR PROJECTS</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-logo">
+          <img src="assets/Tvelp.png" alt="Tvelp Logo" class="project-logo-img" />
+        </div>
+        <p class="project-description">
+          International shopping platform. SocBiz members contributed to marketing strategy, user engagement, and product improvement, helping the startup expand its reach and optimize user experience.
+        </p>
+      </div>
 
-    <div class="project-details">
-      <article class="project" id="tvelp">
-        <img src ="assets/Tvelp.png" class="tvelpimg">
-        <p>International shopping platform bridging product access gaps between countries.</p>
-      </article>
-      <article class="project" id="coversure">
-        <img src ="assets/Coversure.png" class="CoverSureimg">
-        <p>AI-first InsurTech startup solving penetration and personalization in India.</p>
-      </article>
-      <article class="project" id="saintgobain">
-        <img src ="assets/ SaintGobain.png" class="CoverSureimg">
-        <p>Collaborated with global leaders to deliver data-driven strategic insights.</p>
-      </article>
-      <article class="project" id="criminal">
-        <h2>Criminal Investigation Automation</h2>
-        <p>Automated pattern recognition to reduce delays in tracking criminal cases.</p>
-      </article>
+      <div class="project-card">
+        <div class="project-logo">
+          <img src="assets/Coversure.png" alt="Coversure Logo" class="project-logo-img" />
+        </div>
+        <p class="project-description">
+          AI-first InsurTech for India. Our team worked on product management, user research, and go-to-market strategy for this innovative insurance platform.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-logo">
+          <img src="assets/ SaintGobain.png" alt="Saint Gobain Logo" class="project-logo-img" />
+        </div>
+        <p class="project-description">
+          Collaborated with global companies on decarbonization trends, organizational analysis, and market evaluation, providing actionable insights for business transformation.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-logo">
+          <h2>Criminal Investigation Automation</h2>
+        </div>
+        <p class="project-description">
+          Partnered with academic and industry experts to leverage data and automation for real-world applications in criminal investigation and public safety.
+        </p>
+      </div>
     </div>
-  </main>
+    <div class="slider-controls">
+
+
+  </div>
+</section>
+
+
   <section class="text"><p>We regularly engage in consulting, analytics, and product 
     management projects with startups, corporates, and non-profits.
     Interested in collaborating? Contact us!</p>
@@ -321,5 +363,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+<script>
+const grid = document.querySelector(".projects-grid");
+const prevBtn = document.querySelector(".slide-btn.prev");
+const nextBtn = document.querySelector(".slide-btn.next");
+
+let scrollAmount = 0; // Keeps track of scroll position
+const cardWidth = 320; // Width of one card including gap
+
+nextBtn.addEventListener("click", () => {
+  grid.scrollBy({ left: cardWidth, behavior: "smooth" });
+});
+
+prevBtn.addEventListener("click", () => {
+  grid.scrollBy({ left: -cardWidth, behavior: "smooth" });
+});
+</script>
+
 </body>
 </html>
