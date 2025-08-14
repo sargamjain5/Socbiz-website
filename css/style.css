@@ -226,43 +226,7 @@ html, body {
 .PM{
     max-height: 480px;
 }
-.achievements-section {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #fff;
-}
 
-.achievements-section h2 {
-  font-size: 36px;
-  color: #00c16b;
-  font-weight: 700;
-  margin-bottom: 50px;
-}
-
-.achievement-card {
-  background-color: #fff;
-  border: 1.5px solid #00c16b;
-  border-radius: 10px;
-  padding: 25px 30px;
-  margin: 20px auto;
-  max-width: 900px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left;
-}
-
-.achievement-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
-}
-
-.achievement-card p {
-  font-size: 16px;
-  color: #000;
-  font-weight: 500;
-  margin: 0;
-  line-height: 1.6;
-}
 
 .site-footer {
   background-color: #dcfef0;

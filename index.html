@@ -140,9 +140,86 @@ body{
         letter-spacing: 1px;
     }
 
+.achievements-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  max-width: 1000px;
+  margin: auto;
+}
 
+.achievements-section h2 {
+  font-size: 36px;
+  color: #00c16b;
+  font-weight: 800;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+  padding: 10px 0;
+  letter-spacing: 1px;
+  
+}
 
-   
+.achievements-scroll {
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff #f8f8f8;
+}
+
+/* Scrollbar for Chrome/Edge/Safari */
+.achievements-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.achievements-scroll::-webkit-scrollbar-track {
+  background: #f8f8f8;
+  border-radius: 10px;
+}
+.achievements-scroll::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.achievement-card {
+  background-color: #fdfdfd;
+  border: 1.5px solid #00c16b;
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 15px 0;
+  box-shadow: 0 8px 20px rgba(0, 193, 107, 0.1);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px) scale(1);
+  box-shadow: 0 12px 30px rgba(0, 193, 107, 0.15);
+}
+
+.achievement-card p,
+.achievement-card ul {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.achievement-card strong {
+  color: #00c16b;
+}
+
+.achievement-card ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.achievement-card li {
+  margin-bottom: 6px;
+}
+
 
   </style>
 </head>
@@ -270,25 +347,58 @@ body{
         <p class="date">August 20, 2025</p>
         <p>Hands-on workshop on business analytics tools and techniques.</p>
         </div></a>
-      
+      <div class="event-card">
+        <a href="aeonea.html">
+          <img src="assets/aeonea.png" class="analysis" alt="Aeonea Case Study Competition">
+          <h3>Aeonea – Pan-India Case Study Competition</h3>
+          <p class="date">IIT Roorkee 175th Anniversary</p>
+          <p>
+            Flagship national competition by SocBiz & GeeksforGeeks on “Shifting to Hybrid Education in the New Normal.” 
+          </p>
+        </a>
+      </div>
+
+    
 
     </div>
     </section>
-    <section class="achievements-section">
-        <h2>Achievements & Legacy</h2>
 
-        <div class="achievement-card">
-            <p><strong>Winners in global case competitions and Inter-IIT awards</strong> (Gold in Analytics Challenge 2023, Silver and Bronze in Product and Analytics).</p>
-        </div>
+<section class="achievements-section">
+  <h2>Achievements & Legacy</h2>
 
-        <div class="achievement-card">
-            <p><strong>Collaborative research projects</strong>, including automation for criminal investigation and decarbonization trends with global companies.</p>
-        </div>
+  <div class="achievements-scroll">
+    <div class="achievement-card">
+      <p>
+        <strong>🏆 Winners at Inter-IIT Tech Meet</strong>
+      </p>
+      <ul>
+        <li>Gold Medal in Consult and Analytics Challenge, Silver in Product Case Challenge (2023).</li>
+        <li>Bronze Medal in Consult (2018 & 2022).</li>
+        <li>Bronze Medal in Product Case Challenge (2021).</li>
+      </ul>
+    </div>
 
-        <div class="achievement-card">
-            <p><strong>Hosted flagship events</strong> like Business Baazigar and Pan India Case Competition with 3,000+ participants.</p>
-        </div>
-    </section>
+    <div class="achievement-card">
+      <p><strong>🏆 National Finalists:</strong> KPMG Ideation Challenge (2022).</p>
+    </div>
+
+    <div class="achievement-card">
+      <p><strong>🏆 Gold Medal</strong> in Analytics Datathon, NIUA.</p>
+    </div>
+
+    <div class="achievement-card">
+      <p><strong>🏆 Winners</strong> in Global Case Competition in Consult (2023).</p>
+    </div>
+
+    <div class="achievement-card">
+      <p><strong>🏆 Hosted flagship events</strong> like Business Baazigar & Pan India Case Competition with 3,000+ participants.</p>
+    </div>
+
+    <div class="achievement-card">
+      <p><strong>🤝 Collaborative research projects</strong> including automation for criminal investigation & decarbonization trends with global companies.</p>
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="footer-container">
