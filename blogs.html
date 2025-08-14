@@ -14,7 +14,7 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   padding: 20px;
-  margin-top: 14vh;
+  
 }
 
 .intern-card {
@@ -73,7 +73,60 @@
 .read-more:hover {
   color: #388e3c;
 }
+.intern-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
+.intern-card.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+body {
+  padding-top: 100px; 
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.filter-label {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.custom-select {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #25b97d; /* match theme */
+  border-radius: 30px; /* pill shape */
+  background-color: white;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  appearance: none; /* removes default arrow */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2325b97d'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 10px;
+}
+
+.custom-select:hover {
+  border-color: #1da86d;
+}
+
+.custom-select:focus {
+  box-shadow: 0 0 0 3px rgba(37, 185, 125, 0.3);
+}
+
+.custom-select option {
+  padding: 10px;
+}
 
 
   </style>
@@ -93,14 +146,24 @@
       </ul>
     </nav>
   </header>
+<!-- Year Filter -->
+<div class="filter-container">
+  <label for="filterSelect" class="filter-label">Filter by Year:</label>
+  <select id="filterSelect" class="custom-select">
+    <option value="all">All Years</option>
+    <option value="2024-25">2024–25</option>
+    <option value="2023-24">2023–24</option>
+  </select>
+</div>
+
+
 <section class="intern-cards-container">
-  <!-- Vinay Joshi -->
-  <div class="intern-card">
+  <div class="intern-card" data-year="2024-25">
     <div class="intern-photo">
       <img src="assets/memberpics/vinayjoshi" alt="Vinay Joshi">
     </div>
     <h3 class="intern-name">Vinay Joshi</h3>
-    <p class="golden-tip">💡 Golden Tip: Treat DSA like sports — daily practice is better than weekend marathons.</p>
+    <p class="golden-tip">💡 Golden Tip: Treat DSA like sports, daily practice is better than weekend marathons.</p>
     <div class="intern-details">
       <span class="role">Role: SDE Intern</span><br>
       <span class="company">Company: Amazon</span><br>
@@ -109,13 +172,12 @@
     <a href="vinay_joshi_intern.html" class="read-more">Read Full Experience →</a>
   </div>
 
-  <!-- Hemant Reddy -->
-  <div class="intern-card">
+  <div class="intern-card" data-year="2024-25">
     <div class="intern-photo">
       <img src="assets/memberpics/hemant" alt="Hemant Reddy">
     </div>
-    <h3 class="intern-name">Hemant Reddy</h3>
-    <p class="golden-tip">💡 Golden Tip: Prepare domain-wise, not randomly — know exactly what each resource is strengthening.</p>
+    <h3 class="intern-name">Hemanth Reddy</h3>
+    <p class="golden-tip">💡 Golden Tip: Prepare domain-wise, not randomly, know exactly what each resource is strengthening.</p>
     <div class="intern-details">
       <span class="role">Role: Quant Intern</span><br>
       <span class="company">Company: Goldman Sachs</span><br>
@@ -123,41 +185,79 @@
     </div>
     <a href="hemant_reddy_intern.html" class="read-more">Read Full Experience →</a>
   </div>
-  <!-- Kavya Rajput card -->
-<div class="intern-card">
+
+  <div class="intern-card" data-year="2024-25">
   <div class="intern-photo">
-    <img src="assets/memberpics/Kavya_Rajput_Product_3y.jpg" alt="Kavya Rajput">
+    <img src="assets/memberpics/Agam" alt="Agam Pandey">
   </div>
-  <h3 class="intern-name">Kavya Rajput</h3>
-  <p class="golden-tip">💡 Golden Tip: For consulting, think out loud — it’s not just about the answer, but how you structure your thought process.</p>
+  <h3 class="intern-name">Agam Pandey</h3>
+  <p class="golden-tip">💡 Golden Tip: Always understand the “why” behind your projects, depth and clarity matter more than trends.</p>
   <div class="intern-details">
-    <span class="role">Role: Consulting Intern</span><br>
-    <span class="company">Company: BCG</span><br>
+    <span class="role">Role: AI Engineering Intern</span><br>
+    <span class="company">Company: Swiggy</span><br>
     <span class="season">Internship Season: 2024–25 (3rd Year, Sem 1)</span>
   </div>
-  <a href="kavya_rajput_intern.html" class="read-more">Read Full Experience →</a>
+  <a href="agam_pandey_intern.html" class="read-more">Read Full Experience →</a>
 </div>
-<div class="intern-card">
+
+
+  <!-- Example of another year -->
+  <div class="intern-card" data-year="2023-24">
+    <div class="intern-photo">
+      <img src="assets/memberpics/Kavya_Rajput_Product_3y.jpg" alt="Example Intern">
+    </div>
+    <h3 class="intern-name">Kavya Rajput</h3>
+    <p class="golden-tip">💡 Golden Tip: Stay curious and keep learning!</p>
+    <div class="intern-details">
+      <span class="role">Role: Analyst</span><br>
+      <span class="company">Company: Example Corp</span><br>
+      <span class="season">Internship Season: 2023–24</span>
+    </div>
+    <a href="#" class="read-more">Read Full Experience →</a>
+  </div>
+  <div class="intern-card">
   <div class="intern-photo">
     <img src="assets/sk_jha.jpg" alt="SK Jha">
   </div>
   <h3 class="intern-name">SK Jha</h3>
-  <p class="golden-tip">💡 Golden Tip: Train for speed + accuracy — quick, confident decisions make you stand out in trading interviews.</p>
+  <p class="golden-tip">💡 Golden Tip: Train for speed + accuracy, quick, confident decisions make you stand out in trading interviews.</p>
   <div class="intern-details">
-    <span class="role">Role: Trader – US Fixed Income Market</span><br>
+    <span class="role">Role: Trader</span><br>
     <span class="company">Company: Axxela</span><br>
     <span class="season">Internship Season: 2024–25 (3rd Year, Sem 1)
 </span>
   </div>
   <a href="sk_jha_intern.html" class="read-more">Read Full Experience →</a>
 </div>
+<div class="intern-card" data-year="2024-25">
+  <div class="intern-photo">
+    <img src="assets/memberpics/Poorva" alt="Agam Pandey">
+  </div>
+  <h3 class="intern-name">Poorva Sharma</h3>
+  <p class="golden-tip">💡 Golden Tip: Be ready for highly varied and unpredictable discussions, adaptability can be your biggest advantage.</p>
+  <div class="intern-details">
+    <span class="role">Role: Management Consultant</span><br>
+    <span class="company">Company: World Wide Technology</span><br>
+    <span class="season">Internship Season: 2024–25 (3rd Year, Sem 1)</span>
+  </div>
+  <a href="#" class="read-more">Read Full Experience →</a>
+</div>
+<div class="intern-card" data-year="2024-25">
+  <div class="intern-photo">
+    <img src="assets/memberpics/hemant_bidasaria" alt="Hemant Bidasaria">
+  </div>
+  <h3 class="intern-name">Hemant Bidasaria</h3>
+  <p class="golden-tip">💡 Golden Tip: Don’t just know your cases — own them. Be confident, structured, and calm, even when faced with something unexpected.</p>
+  <div class="intern-details">
+    <span class="role">Role: Consulting</span><br>
+    <span class="company">Company: Boston Consulting Group (BCG)</span><br>
+    <span class="season">Internship Season: 2024–25 (4th Year, BS-MS Economics)</span>
+  </div>
+  <a href="hemant_bidasaria_intern.html" class="read-more">Read Full Experience →</a>
+</div>
 
 
-
-  
 </section>
-
-
 
   <footer class="site-footer">
   <div class="footer-container">
@@ -173,8 +273,8 @@
       <h4>Quick links</h4>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Resources</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -199,5 +299,21 @@
 
   </div>
 </footer>
+<script>
+    filterSelect.addEventListener("change", () => {
+  const selectedYear = filterSelect.value;
+
+  cards.forEach(card => {
+    if (selectedYear === "all" || card.dataset.year === selectedYear) {
+      card.classList.remove("hidden");
+      setTimeout(() => card.style.display = "block", 300);
+    } else {
+      card.classList.add("hidden");
+      setTimeout(() => card.style.display = "none", 300);
+    }
+  });
+});
+
+</script>
 </body>
 </html>
