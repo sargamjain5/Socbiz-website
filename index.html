@@ -483,7 +483,29 @@ body{
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease-out forwards;
 }
+/* --- Enhanced Hover Effect --- */
+.hover-effect {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
 
+.hover-effect span {
+  color: #424242;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* The new hover state */
+.hover-effect span:hover {
+  color: #00c286;
+  transform: translateY(-5px); /* Lifts the text up */
+  text-shadow: 0 5px 15px rgba(0, 194, 134, 0.4); /* Adds the glow */
+}
 /* The animation keyframes */
 @keyframes fadeInUp {
   to {
@@ -873,6 +895,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial check when the page loads
     updateButtonState();
   }
+});
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const animatedElements = document.querySelectorAll(".fade-in-scroll");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  animatedElements.forEach(element => {
+    observer.observe(element);
+  });
 });
 </script>
 </body>
