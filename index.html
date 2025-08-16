@@ -475,6 +475,33 @@ body{
 .event-grid::-webkit-scrollbar {
   display: none; /* For Chrome, Safari, and Opera */
 }
+/* --- Staggered Load-in Animation --- */
+
+/* Initial state for all animated elements */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* The animation keyframes */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Applying delays to each element */
+.center-logo.fade-in-up {
+  animation-delay: 0.2s;
+}
+.hover-effect.fade-in-up {
+  animation-delay: 0.4s;
+}
+.hero p.fade-in-up {
+  animation-delay: 0.6s;
+}
 </style>
 </head>
 <body>
@@ -494,20 +521,18 @@ body{
   </header>
 
   <main class="hero">
-  <section class = "main-page">
-    <div class="hero-content">
-      <img src="assets/socbizLogo.png" class="center-logo" alt="Center Logo" />
-      <h1 class="hover-effect">
-        <span>IDEATE.</span>
-        <span>STRATEGIZE.</span>
-        <span>ANALYSE.</span>
-      </h1>
-      <p>
-        Driven by passion and purpose, we cultivate the next generation of business leaders across
-        <b>Consulting</b>, <b>Product Management</b>, and <b>Analytics</b> at IIT Roorkee.
-      </p>
-    </div>
-  </section>
+  <div class="hero-content">
+  <img src="assets/socbizLogo.png" class="center-logo fade-in-up" alt="Center Logo" />
+  <h1 class="hover-effect fade-in-up">
+    <span>IDEATE.</span>
+    <span>STRATEGIZE.</span>
+    <span>ANALYSE.</span>
+  </h1>
+  <p class="fade-in-up">
+    Driven by passion and purpose, we cultivate the next generation of business leaders across
+    <b>Consulting</b>, <b>Product Management</b>, and <b>Analytics</b> at IIT Roorkee.
+  </p>
+</div>
 <section class="stats-section">
   <div class="container">
     <div class="stats-grid">
