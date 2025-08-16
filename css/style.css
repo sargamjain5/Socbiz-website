@@ -242,6 +242,9 @@ html, body {
   padding: 0 20px; /* side padding inside centered content */
 }
 
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+}
 
 .footer-left {
   max-width: 300px;

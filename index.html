@@ -365,6 +365,116 @@ body{
   fill: #e91e63;
   transform: scale(1.1);
 }
+/* =================================== */
+/* ==   Featured Events Redesign    == */
+/* =================================== */
+
+.featured-events {
+  text-align: center;
+  padding: 80px 20px;
+
+}
+
+.featured-events .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featured-events .section-title {
+  font-size: 36px;
+  color: #00c16b;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* New: Using CSS Grid for a robust, responsive layout */
+.event-grid {
+  display: flex;         /* Lays out items in a row */
+  overflow-x: auto;      /* Enables horizontal scrolling */
+  gap: 30px;             /* Keeps the space between cards */
+  padding: 10px;
+}
+
+/* New: The "Poster Card" Style */
+.event-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Pushes content to the bottom */
+  min-height: 300px;
+  padding: 25px;
+  flex: 0 0 300px;
+  border-radius: 12px;
+  overflow: hidden; /* Important for the hover effect and border-radius */
+  text-decoration: none;
+  position: relative; /* Anchor for the gradient overlay */
+  
+  /* Image background styles */
+  background-size: cover;
+  background-position: center;
+  
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Subtle zoom effect on hover */
+.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* New: The dark gradient overlay */
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 60%);
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+.event-card:hover::before {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 60%);
+}
+
+/* Container for text, positioned above the overlay */
+.event-card-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  color: #ffffff;
+}
+
+/* New: A category tag for context */
+.event-card-content .event-category {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: rgba(0, 193, 107, 0.8);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.event-card-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  line-height: 1.2;
+}
+
+.event-card-content .event-date {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  margin: 0;
+}
+.event-grid::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
 </style>
 </head>
 <body>
@@ -407,7 +517,7 @@ body{
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
         </div>
         <div class="stat-number" data-target="25">0</div>
-        <div class="stat-label">STARTUPS INCUBATED</div>
+        <div class="stat-label">STARTUPS</div>
       </div>
       
       <div class="stat-card stat-card--highlight">
@@ -487,12 +597,12 @@ body{
           <div class="card-footer"><div class="like-button"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div></div>
         </div>
         <div class="testimonial-card">
-          <div class="card-header"><div class="card-logo"><img src="assets/logos/Mindshift.png" alt="Logo"></div></div>
+          <div class="card-header"><div class="card-logo"><img src="assets/logos/Mindshift.jpg" alt="Logo"></div></div>
           <div class="card-text"><p>“Bringing SocBiz members into Mindshift Analytics was refreshing. Their ability to connect data and real operations helped us sharpen our analytics dashboards and workflows. They didn’t just code, they asked why it mattered, and adjusted designs accordingly. Working with them made data feel alive.”</p></div>
           <div class="card-footer"><div class="like-button"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div></div>
         </div>
         <div class="testimonial-card">
-          <div class="card-header"><div class="card-logo"><img src="assets/logos/autofit.png" alt="Logo"></div></div>
+          <div class="card-header"><div class="card-logo"><img src="assets/logos/autofit.jpg" alt="Logo"></div></div>
           <div class="card-text"><p>“Working with SocBiz at Actofit has been a real boost. They dove into our wellness platform with fresh energy, helping us think through user flows that connect wearables, coaching, and personalized plans. Their thoughtful approach kept ideas grounded in real usage and kept tech and empathy in sync. ”</p></div>
           <div class="card-footer"><div class="like-button"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div></div>
         </div>
@@ -516,48 +626,44 @@ body{
     management projects with startups, corporates, and non-profits.
     Interested in collaborating? Contact us!</p>
   </section>
-  <section class="featured-events">
-    <h2>Featured Events</h2>
-    <div class="event-cards">
+<section class="featured-events">
+  <div class="container">
+    <h2 class="section-title">Featured Events</h2>
+    <div class="event-grid">
 
-        <div class="event-card">
-        <a href = "conqu.html">
-        <img src="assets/Consult.png" alt="Consulting Bootcamp">
-        <h3>Conquest</h3>
-        <p class="date">July 15, 2025</p>
-        <p>Kickstart your consulting journey with industry experts and real case studies.</p>
-        </div></a>
+      <a href="conqu.html" class="event-card" style="background-image: url('assets/conquest.png');">
+        <div class="event-card-content">
+          <p class="event-category">Conquest/p>
+          
+          <p class="event-date">July 15, 2025</p>
+        </div>
+      </a>
 
-        <div class="event-card">
-          <a href = "business_baaz.html">
-        <img src="assets/PM101.png" class="PM" alt="Product Management 101">
-        <h3>Business Baazigar</h3>
-        <p class="date">August 2, 2025</p>
-        <p>Learn the essentials of product management from top PMs in the industry.</p>
-        </div></a>
+      <a href="business_baaz.html" class="event-card" style="background-image: url('assets/Business_baazigar.png');">
+        <div class="event-card-content">
+          <p class="event-category">Business Baazigar</p>
+          
+          <p class="event-date">August 2, 2025</p>
+        </div>
+      </a>
 
-        <div class="event-card">
-          <a href = "analytics.html">
-        <img src="assets/analytics.png" class="analysis" alt="Analytics for Business">
-        <h3>Winter Analytics</h3>
-        <p class="date">August 20, 2025</p>
-        <p>Hands-on workshop on business analytics tools and techniques.</p>
-        </div></a>
-      <div class="event-card">
-        <a href="aeonea.html">
-          <img src="assets/aeonea.png" class="analysis" alt="Aeonea Case Study Competition">
-          <h3>Aeonea – Pan-India Case Study Competition</h3>
-          <p class="date">IIT Roorkee 175th Anniversary</p>
-          <p>
-            Flagship national competition by SocBiz & GeeksforGeeks on “Shifting to Hybrid Education in the New Normal.” 
-          </p>
-        </a>
-      </div>
-
-    
+      <a href="analytics.html" class="event-card" style="background-image: url('assets/data_analytics.png');">
+        <div class="event-card-content">
+          <p class="event-category">Winter Analytics</p>
+          <p class="event-date">August 20, 2025</p>
+        </div>
+      </a>
+      
+      <a href="aeonea.html" class="event-card" style="background-image: url('assets/aeonea.png');">
+        <div class="event-card-content">
+          <p class="event-category">Aeonea</p>
+          <p class="event-date">IITR 175th Anniversary</p>
+        </div>
+      </a>
 
     </div>
-    </section>
+  </div>
+</section>
 
 <section class="achievements-section">
 <h2 class="section-title">Achievements & Legacy</h2>
@@ -744,4 +850,3 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
-
