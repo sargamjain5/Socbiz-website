@@ -9,12 +9,23 @@
   <script defer src="js/script.js"></script>
   <style>
 
+ html {
+  height: 100%;
+}
 
-    section {
+body {
+  min-height: 100%; /* Ensures the body is at least as tall as the viewport */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1; /* This is the key: it makes the main content push the footer down */
+}
+    .page-section { /* Changed from "section" to ".page-section" */
       max-width: 1100px;
       margin: 0 auto;
       padding: 80px 20px;
-    
     }
 
     /* Fade-in on Scroll Animation */
@@ -321,8 +332,8 @@
       </ul>
     </nav>
 </header>
-
-  <section>
+<main>
+  <section class="page-section">
     <div class="about-container fade-in-scroll">
       <div class="about-text">
         <h2>Who are We?</h2>
@@ -340,7 +351,7 @@
   </section>
 
   <!-- Our Verticals Section -->
-  <section class="Verticals fade-in-scroll">
+  <section class="Verticals fade-in-scroll page-section">
     <h1>Our Verticals</h1>
     <div class="project-wrapper">
       <nav class="project-nav">
@@ -379,7 +390,7 @@
       </div>
     </div>
 
-  <section class="team-section">
+  <section class="team-section page-section">
   <h2 class="team-title">Meet Our Team</h2>
   <div class="team-grid">
 
@@ -407,6 +418,7 @@
     
   </div>
 </section>
+</main>
 <footer class="site-footer">
   <div class="footer-container">
     
