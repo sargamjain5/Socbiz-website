@@ -96,51 +96,88 @@ body{
   color: #555;
 }
 
-
-
+/* =================================== */
+/* ==      Stats Section design     == */
+/* =================================== */
 
 .stats-section {
+  padding: 5rem 0;
+
+}
+
+/* A container to manage width and centering */
+.stats-section .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* A responsive flex grid for the cards */
+.stats-grid {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  padding: 60px;
-  margin-top: 20vh;
+  gap: 2rem; /* The space between cards */
+  flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+  margin-top: 3rem;
 }
 
+/* Base style for all stat cards */
 .stat-card {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
   text-align: center;
-  padding: 20px 20px;
-  border-radius: 8px;
-  width: 270px;
-  background-color: #05C898;
-  box-shadow: 0 6px 20px rgba(3, 3, 3, 0.343);
-}
-.stat-card-highlight {
-  text-align: center;
-  padding: 20px 20px;
-  border-radius: 8px;
-  width: 270px;
-  background-color: #ffffff;
-  border-color: #05C898;
-  border-width: 2px;
-  border-style: solid;
-  box-shadow: 0 6px 20px rgba(3, 3, 3, 0.343);
+  border: 1px solid #e7eaf3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  
+  /* Responsive sizing */
+  flex: 1; /* Allows cards to grow */
+  min-width: 280px; /* Minimum width before wrapping */
+  max-width: 320px; /* Maximum width */
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* A modern hover effect */
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 193, 107, 0.12); /* Soft, green-tinted shadow */
+}
 
-    .stat-number {
-        font-size: 5rem;
-        font-weight: bold;
-        color: rgb(2, 2, 2);
-    }
+/* The highlighted card style */
+.stat-card--highlight {
+  border: 2px solid #00c16b;
+  box-shadow: 0 8px 25px rgba(0, 193, 107, 0.08);
+}
+
+/* Styling for the new icons */
+.stat-icon {
+  margin-bottom: 1rem;
+  color: #00c16b; /* Brand green color for icons */
+}
+.stat-icon svg {
+    stroke-width: 1.5; /* Makes the icon lines a bit thinner */
+}
 
 
-    .stat-label {
-        font-size: 1rem;
-        font-weight: bold;
-        color: rgb(0, 0, 0);
-        letter-spacing: 1px;
-    }
+/* Improved typography for the number */
+.stat-number {
+  font-size: 4.5rem; /* Slightly smaller for better balance */
+  font-weight: 700;
+  color: #2d3748; /* A dark, soft black */
+  line-height: 1.1;
+}
+
+/* Improved typography for the label */
+.stat-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #718096; /* A softer grey for the label text */
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
 
 .achievements-section {
   text-align: center;
@@ -153,7 +190,6 @@ body{
 .achievements-section h2 {
   font-size: 36px;
   color: #00c16b;
-  font-weight: 800;
   margin-bottom: 20px;
   position: sticky;
   top: 0;
@@ -221,9 +257,115 @@ body{
 .achievement-card li {
   margin-bottom: 6px;
 }
+/* === Testimonials Section (Narrow Text, Centered) === */
+/* ========================================= */
+/* ==   Self-Moving Testimonial Marquee   == */
+/* ========================================= */
+.testimonials-section {
+  padding: 6rem 0;
+  background-color: #ffffff;
+}
 
+/* The main container that creates the "window" */
+.testimonials-scroller {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden; /* This is crucial to hide the overflowing content */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
 
-  </style>
+/* The track that holds and animates the cards */
+.scroller-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content; /* Allows the track to be as wide as its content */
+  
+  /* The animation itself */
+  animation: scroll 40s linear infinite;
+}
+
+/* Pause the animation on hover */
+.testimonials-scroller:hover .scroller-track {
+  animation-play-state: paused;
+}
+
+/* The animation keyframes */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Moves the track to the left by the width of the first set of cards */
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+/* Card styles are preserved */
+.testimonial-card {
+  flex-shrink: 0;
+  width: 360px;
+  background: #ffffff;
+  border-radius: 16px;
+  /* UPDATED: 1rem for top/bottom, 1.5rem for left/right */
+  padding: 1rem 1.5rem; 
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(45, 53, 60, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.card-logo img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+
+}
+.card-text p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+.card-footer {
+  display: flex;
+  justify-content: center;
+}
+.like-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e9e9e9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.like-button svg {
+  width: 18px;
+  height: 18px;
+  fill: #cccccc;
+  transition: all 0.3s ease;
+}
+.like-button:hover {
+  background-color: #fff0f3;
+  border-color: #ffcdd8;
+}
+.like-button:hover svg {
+  fill: #e91e63;
+  transform: scale(1.1);
+}
+</style>
 </head>
 <body>
   <header>
@@ -256,24 +398,41 @@ body{
       </p>
     </div>
   </section>
-  <section class="stats-section">
-    <div class="stat-card">
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+        </div>
         <div class="stat-number" data-target="25">0</div>
-        <div class="stat-label">STARTUPS</div>
-    </div>
-    <div class="stat-card-highlight">
+        <div class="stat-label">STARTUPS INCUBATED</div>
+      </div>
+      
+      <div class="stat-card stat-card--highlight">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        </div>
         <div class="stat-number" data-target="30">0</div>
-        <div class="stat-label">PROJECTS</div>
-    </div>
-    <div class="stat-card">
+        <div class="stat-label">PROJECTS DELIVERED</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
         <div class="stat-number" data-target="30">0</div>
-        <div class="stat-label">CASE COMPETITION WINS</div>
+        <div class="stat-label">COMPETITION WINS</div>
+      </div>
+
     </div>
+  </div>
 </section>
    
 <section class="projects-section">
   <div class="container">
-    <h2 class="section-title">OUR PROJECTS</h2>
+    <h2 class="section-title">Our Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-logo">
@@ -314,8 +473,45 @@ body{
     <div class="slider-controls">
   </div>
 </section>
+<!-- ================== Testimonials Section ================== -->
+<section class="testimonials-section">
+  <div class="container">
+    <h2 class="section-title">What Our Collaborators Say</h2>
+
+    <div class="testimonials-scroller">
+      <div class="scroller-track">
+        
+        <div class="testimonial-card">
+          <div class="card-header"><div class="card-logo"><img src="assets/logos/pharoscion.png" alt="Logo"></div></div>
+          <div class="card-text"><p>“The team’s enthusiasm, sharp thinking, and knack for turning ideas into practical solutions really stood out. They brought in a fresh perspective, blending solid analysis with real-world relevance. It’s great to see such dedication and professionalism, and we're looking forward to seeing the kind of impact they create in the business and analytics space”</p></div>
+          <div class="card-footer"><div class="like-button"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="card-header"><div class="card-logo"><img src="assets/logos/Mindshift.png" alt="Logo"></div></div>
+          <div class="card-text"><p>“Bringing SocBiz members into Mindshift Analytics was refreshing. Their ability to connect data and real operations helped us sharpen our analytics dashboards and workflows. They didn’t just code, they asked why it mattered, and adjusted designs accordingly. Working with them made data feel alive.”</p></div>
+          <div class="card-footer"><div class="like-button"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="card-header"><div class="card-logo"><img src="assets/logos/autofit.png" alt="Logo"></div></div>
+          <div class="card-text"><p>“Working with SocBiz at Actofit has been a real boost. They dove into our wellness platform with fresh energy, helping us think through user flows that connect wearables, coaching, and personalized plans. Their thoughtful approach kept ideas grounded in real usage and kept tech and empathy in sync. ”</p></div>
+          <div class="card-footer"><div class="like-button"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="card-header"><div class="card-logo"><img src="assets/Tvelp.png" alt="Logo"></div></div>
+          <div class="card-text"><p>“They jump in, build with empathy, and make ideas happen, making collaboration feel natural. We're excited to see how this kind of hands-on, real-world thinking continues to shape platforms like ours.”</p></div>
+          <div class="card-footer"><div class="like-button"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="card-header"><div class="card-logo"><img src="assets/logos/crowwd.jpg" alt="Logo"></div></div>
+          <div class="card-text"><p>“They don’t just think creatively, they act on it, helping build features that connect users meaningfully. Collaborating with them has been seamless and inspiring,we’re looking forward to seeing where they take the concept of community next.”</p></div>
+          <div class="card-footer"><div class="like-button"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div></div>
+        </div>
 
 
+      </div>
+    </div>
+  </div>
+</section>
   <section class="text"><p>We regularly engage in consulting, analytics, and product 
     management projects with startups, corporates, and non-profits.
     Interested in collaborating? Contact us!</p>
@@ -364,7 +560,7 @@ body{
     </section>
 
 <section class="achievements-section">
-  <h2>Achievements & Legacy</h2>
+<h2 class="section-title">Achievements & Legacy</h2>
 
   <div class="achievements-scroll">
     <div class="achievement-card">
@@ -473,23 +669,79 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
 <script>
-const grid = document.querySelector(".projects-grid");
-const prevBtn = document.querySelector(".slide-btn.prev");
-const nextBtn = document.querySelector(".slide-btn.next");
+document.addEventListener("DOMContentLoaded", () => {
+  const animatedElements = document.querySelectorAll(".fade-in-up");
 
-let scrollAmount = 0; // Keeps track of scroll position
-const cardWidth = 320; // Width of one card including gap
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
 
-nextBtn.addEventListener("click", () => {
-  grid.scrollBy({ left: cardWidth, behavior: "smooth" });
-});
-
-prevBtn.addEventListener("click", () => {
-  grid.scrollBy({ left: -cardWidth, behavior: "smooth" });
+  animatedElements.forEach(element => {
+    observer.observe(element);
+  });
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".testimonials-container");
+  const prevBtn = document.querySelector(".slider-btn.prev");
+  const nextBtn = document.querySelector(".slider-btn.next");
+
+  if (container && prevBtn && nextBtn) {
+    // Function to calculate the amount to scroll
+    const getScrollAmount = () => {
+      const firstCard = container.querySelector(".testimonial-card");
+      if (firstCard) {
+        const cardWidth = firstCard.offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(container).gap);
+        return cardWidth + gap;
+      }
+      return 300; // A fallback value
+    };
+
+    // Function to update button states (disabled or not)
+    const updateButtonState = () => {
+      const scrollAmount = container.scrollLeft;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      
+      // A small tolerance is added to handle fractional pixel values
+      prevBtn.disabled = scrollAmount < 10;
+      nextBtn.disabled = scrollAmount > maxScroll - 10;
+    };
+
+    // Event listener for the "Next" button
+    nextBtn.addEventListener("click", () => {
+      container.scrollBy({
+        left: getScrollAmount(),
+        behavior: "smooth"
+      });
+    });
+
+    // Event listener for the "Previous" button
+    prevBtn.addEventListener("click", () => {
+      container.scrollBy({
+        left: -getScrollAmount(),
+        behavior: "smooth"
+      });
+    });
+
+    // Update buttons when the user scrolls manually
+    container.addEventListener("scroll", updateButtonState);
+
+    // Initial check when the page loads
+    updateButtonState();
+  }
+});
+</script>
 </body>
 </html>
+
