@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Society of Business</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script defer src="js/script.js"></script>
+  
+  <style>
+    body {
+      padding-top: 100px; 
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* --- Existing Card Styles --- */
+    .intern-cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .intern-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, opacity 0.3s ease;
+    }
+
+    .intern-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .intern-photo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #4caf50;
+    }
+
+    .intern-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .intern-name {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .golden-tip {
+      font-size: 0.95rem;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .intern-details {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .read-more {
+      text-decoration: none;
+      color: #4caf50;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .read-more:hover {
+      color: #388e3c;
+    }
+
+    /* --- Filter Styles --- */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .filter-label {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .custom-select {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: 2px solid #25b97d;
+      border-radius: 30px;
+      background-color: white;
+      color: #333;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%252325b97d'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 10px;
+    }
+
+    .custom-select:hover {
+      border-color: #1da86d;
+    }
+
+    .custom-select:focus {
+      box-shadow: 0 0 0 3px rgba(37, 185, 125, 0.3);
+    }
+    
+    /* --- Styles for filtering animation --- */
+    .intern-card.hidden {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+
+    /* --- Styles for Modal --- */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+    
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+      line-height: 1;
+    }
+    
+    .modal-close:hover {
+        color: #333;
+    }
+
+    #modal-title {
+        margin-top: 0;
+        color: #333;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    #modal-experience {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
+    }
+    
+    /* Hide the experience text on the cards */
+    .full-experience {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html" class="active">Intern Diaries</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="filter-container">
+    <label for="filterSelect" class="filter-label">Filter by Year:</label>
+    <select id="filterSelect" class="custom-select">
+      <option value="all">All Years</option>
+      <option value="2024-25">2024–25</option>
+      <option value="2023-24">2023–24</option>
+    </select>
+  </div>
+
+
+  <section class="intern-cards-container">
+<div class="intern-card" data-year="2024-25">
+    <div class="intern-photo">
+      <img src="assets/memberpics/Vinay.jpg" alt="Vinay Joshi">
+    </div>
+    <h3 class="intern-name">Vinay Joshi</h3>
+    <p class="golden-tip">💡 Golden Tip: Don’t just prepare to answer — prepare to explain your thinking. That’s what interviewers value most.</p>
+    <div class="intern-details">
+      <span class="role">Role: Data Analytics / Data Science Intern</span><br>
+      <span class="company">Company: American Express (Amex)</span><br>
+      <span class="season">Internship Season: 2024–25 (3rd Year)</span>
+    </div>
+    <a class="read-more">Read Full Experience →</a>
+    <div class="full-experience">
+      <h4>The Selection Gauntlet: A Three-Stage Process</h4>
+      <p>The entire process was designed to test a mix of aptitude, technical depth, and problem-solving skills. It consisted of three distinct stages:</p>
+      <ol>
+          <li>Online Assessment (OA)</li>
+          <li>Technical Interview – Round 1</li>
+          <li>Technical Interview – Round 2</li>
+      </ol>
+  
+      <h4>Stage 1: The Online Assessment (OA)</h4>
+      <p>This first hurdle was a compact but tricky test of speed, accuracy, and versatility, focusing on:</p>
+      <ul>
+          <li><strong>Logical Reasoning & Data Interpretation (LRDI):</strong> Charts, graphs, and logical puzzles where time management was crucial.</li>
+          <li><strong>Numerical Ability:</strong> Application-based questions on probability and basic statistics.</li>
+          <li><strong>Technical Skills:</strong> Core skills in SQL (JOINs, GROUP BY), Python with Pandas/NumPy, and ML basics.</li>
+      </ul>
+  
+      <h4>Stages 2 & 3: The Technical Interviews</h4>
+      <p>Both interview rounds were intensely technical and followed a consistent format:</p>
+      <ul>
+          <li><strong>Resume Deep-Dive:</strong> I was asked to explain a project end-to-end, justifying the "why" behind every decision on model selection, preprocessing, and business impact.</li>
+          <li><strong>Case Study / Guesstimate:</strong> Each round included a business problem where structured thinking and voicing your logic aloud were key.</li>
+          <li><strong>The Puzzle Round:</strong> A brain teaser was given to evaluate my approach and clarity of thought under pressure.</li>
+          <li><strong>Statistics Fundamentals:</strong> I was quizzed on core concepts like probability, distributions, and A/B testing.</li>
+      </ul>
+  
+      <h4>Key Takeaways & Final Advice</h4>
+      <ul>
+          <li><strong>Know Your Projects Inside-Out:</strong> Be ready to break down every single micro-decision you made.</li>
+          <li><strong>Justify Everything:</strong> Have a reason for every tool, model, and metric you used.</li>
+          <li><strong>Practice Structured Problem-Solving:</strong> Use frameworks to keep your thinking clear.</li>
+          <li><strong>Be Resume-Smart:</strong> Only list skills you can confidently defend in depth.</li>
+      </ul>
+    </div>
+  </div>
+
+  
+  <div class="intern-card" data-year="2024-25">
+    <div class="intern-photo">
+      <img src="assets/memberpics/hemant" alt="Hemant Reddy">
+    </div>
+    <h3 class="intern-name">Hemanth Reddy</h3>
+    <p class="golden-tip">💡 Golden Tip: Prepare domain-wise, not randomly. Know exactly which skill each resource is strengthening.</p>
+    <div class="intern-details">
+      <span class="role">Role: Quant Intern</span><br>
+      <span class="company">Company: Goldman Sachs</span><br>
+      <span class="season">Internship Season: 2024–25 (3rd Year)</span>
+    </div>
+    <a class="read-more">Read Full Experience →</a>
+    <div class="full-experience">
+      <h4>The Selection Process</h4>
+      <p>As a Day 0 recruiter, Goldman Sachs has a very fast-paced process. It involved three main stages:</p>
+      <ol>
+          <li>Resume Shortlisting</li>
+          <li>Online Assessment (OA)</li>
+          <li>Technical Interviews (3 Rounds)</li>
+      </ol>
+  
+      <h4>Stage 1 & 2: Shortlisting & Online Assessment</h4>
+      <ul>
+          <li><strong>Resume Shortlisting:</strong> The initial selection was purely resume-based. My standout projects in quantitative domains were crucial for getting shortlisted.</li>
+          <li><strong>Online Assessment (OA):</strong> The test consisted of <strong>JEE-level Mathematics</strong> and <strong>Basic DSA</strong> questions, testing both accuracy and time management under pressure.</li>
+      </ul>
+  
+      <h4>Stage 3: The Technical Interviews</h4>
+      <p>I went through three technical rounds focusing on Probability & Statistics, Puzzles, DSA, and Projects.</p>
+      <ul>
+          <li><strong>Round 1 (The Fundamentals):</strong> Tested my grasp of fundamental probability and logical reasoning.</li>
+          <li><strong>Round 2 (The Project Deep-Dive):</strong> This round was a deep, technical discussion about my projects. Having complete clarity on the "why," "how," and "impact" of my work was a major factor in my selection.</li>
+          <li><strong>Round 3 (Advanced Problems):</strong> A mix of advanced probability problems, complex puzzles, and scenario-based questions.</li>
+      </ul>
+  
+      <h4>My Preparation Strategy</h4>
+      <p>I took a structured, domain-specific approach to my preparation:</p>
+      <ul>
+          <li><strong>For DSA:</strong> Used InterviewBit for practice and Striver's DSA Playlist for concepts.</li>
+          <li><strong>For Competitive Programming:</strong> Participated in regular contests on Codeforces to improve speed.</li>
+          <li><strong>For Probability & Statistics:</strong> Relied heavily on my college course notes for clarity.</li>
+          <li><strong>For Puzzles:</strong> Used Brainstellar for a wide variety of challenging puzzles.</li>
+      </ul>
+    </div>
+  </div>
+
+<div class="intern-card" data-year="2024-25">
+    <div class="intern-photo">
+      <img src="assets/memberpics/Agam" alt="Agam Pandey">
+    </div>
+    <h3 class="intern-name">Agam Pandey</h3>
+    <p class="golden-tip">💡 Golden Tip: Always understand the “why” behind your projects; depth and clarity matter more than trends.</p>
+    <div class="intern-details">
+      <span class="role">Role: AI Engineering Intern – CEO’s Office</span><br>
+      <span class="company">Company: Swiggy</span><br>
+      <span class="season">Internship Season: 2024–25 (3rd Year)</span>
+    </div>
+    <a class="read-more">Read Full Experience →</a>
+    <div class="full-experience">
+      <h4>The Selection Process (Off-Campus)</h4>
+      <p>This unique role in Swiggy’s CEO’s Office blended tech, product, and business. The process emphasized hands-on skills and handling open-ended problems.</p>
+      <ol>
+          <li><strong>Resume & Project Discussion:</strong> A deep dive into my past work, focusing on the "why" behind my projects.</li>
+          <li><strong>Assignment Review:</strong> This went beyond coding, focusing on scalability, system design, and on-the-spot code walkthroughs of my submitted solution.</li>
+          <li><strong>Technical & HR Discussions:</strong> The final stages involved system architecture discussions and a culture-fit conversation.</li>
+      </ol>
+
+      <h4>Key Takeaways</h4>
+      <ul>
+          <li><strong>Describe Projects Concisely:</strong> Structure your explanation as: what you built → how you solved it → the measurable impact.</li>
+          <li><strong>Be Specific:</strong> Back up your points with data and technical details. Avoid vague terms.</li>
+          <li><strong>Follow Your Interests:</strong> Don’t chase trends. Building deep knowledge in areas you are passionate about yields more meaningful results.</li>
+      </ul>
+    </div>
+  </div>
+<div class="intern-card" data-year="2024-25">
+    <div class="intern-photo">
+      <img src="assets/memberpics/Kavya_Rajput_Product_3y.jpg" alt="Kavya Rajput">
+    </div>
+    <h3 class="intern-name">Kavya Rajput</h3>
+    <p class="golden-tip">💡 Golden Tip: Your consulting journey starts long before the interview. Build a diverse, high-impact resume, then master structured thinking through live case practice.</p>
+    <div class="intern-details">
+      <span class="role">Role: Consulting Intern</span><br>
+      <span class="company">Company: Boston Consulting Group (BCG)</span><br>
+      <span class="season">Internship Season: 2024–25 (3rd Year)</span>
+    </div>
+    <a class="read-more">Read Full Experience →</a>
+    <div class="full-experience">
+      <h4>The Selection Process</h4>
+      <p>As a Day 0 company, BCG's process is rigorous. It unfolds in three key stages:</p>
+      <ol>
+          <li>Resume Shortlisting</li>
+          <li>Buddy Program</li>
+          <li>Case Interviews</li>
+      </ol>
+  
+      <h4>Stage 1: The Resume</h4>
+      <p>This is your entry ticket. Crafting a well-rounded, high-impact resume is the most critical first step.</p>
+      <ul>
+          <li><strong>CGPA:</strong> A strong benchmark is 8.5+, though a lower CGPA can be offset by an exceptional profile.</li>
+          <li><strong>Achievements & PORs:</strong> Showcase diverse achievements (academic, cultural, sports) and leadership roles. Always quantify your impact.</li>
+          <li><strong>Formatting:</strong> Keep it to a strict one-page limit with a clean layout and get it reviewed by multiple seniors.</li>
+      </ul>
+  
+      <h4>Stage 2 & 3: Buddy Program & Case Interviews</h4>
+      <ul>
+          <li><strong>The Buddy Program:</strong> Once shortlisted, you're paired with a BCG alum for case prep guidance. Every interaction is evaluative.</li>
+          <li><strong>The Case Interviews:</strong> Expect 2-3 rounds mixing case solving with guesstimates. The focus is always on your thinking process, not just the final answer. Be sure to think aloud and ask clarifying questions.</li>
+      </ul>
+      
+      <h4>Skills BCG Values</h4>
+      <p>BCG looks for great communication, active listening, adaptability to new information, and strong business acumen.</p>
+    </div>
+  </div>
+
+<div class="intern-card" data-year="2024-25">
+    <div class="intern-photo">
+      <img src="assets/memberpics/SK Jha.jpg" alt="SK Jha">
+    </div>
+    <h3 class="intern-name">SK Jha</h3>
+    <p class="golden-tip">💡 Golden Tip: Train for speed + accuracy – quick, confident decisions make you stand out in trading interviews.</p>
+    <div class="intern-details">
+      <span class="role">Role: Trader – US Fixed Income Market</span><br>
+      <span class="company">Company: Axxela</span><br>
+      <span class="season">Internship Season: 2024–25 (5th Semester)</span>
+    </div>
+    <a class="read-more">Read Full Experience →</a>
+    <div class="full-experience">
+      <h4>The Selection Gauntlet</h4>
+      <p>The process was designed to test mental agility and performance under pressure through three stages:</p>
+      <ol>
+          <li><strong>Online Test:</strong> Focused on raw quantitative ability, covering speed math, aptitude, and logical reasoning.</li>
+          <li><strong>Trading Simulation Game:</strong> A hands-on simulation that tested quick thinking and decision-making in a high-pressure environment.</li>
+          <li><strong>Two Interviews:</strong>
+              <ul>
+                  <li>The first was a rapid-fire round of mental math problems.</li>
+                  <li>The second was a broader discussion covering my resume, basic finance, puzzles, and a simple guesstimate.</li>
+              </ul>
+          </li>
+      </ol>
+
+      <h4>My Preparation Toolkit</h4>
+      <ul>
+          <li><strong>For Finance Concepts:</strong> Zerodha Varsity was an excellent resource for building a solid foundation.</li>
+          <li><strong>For Mental Agility:</strong> I practiced regular mental math drills to improve both speed and accuracy.</li>
+          <li><strong>For Analytical Skills:</strong> My work in the SocBiz Data Analytics vertical significantly boosted my problem-solving abilities.</li>
+      </ul>
+
+      <h4>Key Lessons Learned</h4>
+      <p>Staying calm under pressure, thinking and deciding quickly, and adapting to unexpected question formats were the most critical skills for success.</p>
+    </div>
+  </div>
+    
+<div class="intern-card" data-year="2024-25">
+    <div class="intern-photo">
+      <img src="assets/memberpics/Poorva" alt="Poorva Sharma">
+    </div>
+    <h3 class="intern-name">Poorva Sharma</h3>
+    <p class="golden-tip">💡 Golden Tip: Be ready for highly varied and unpredictable discussions; adaptability can be your biggest advantage.</p>
+    <div class="intern-details">
+      <span class="role">Role: AI Consulting (Management Consultant)</span><br>
+      <span class="company">Company: World Wide Technology</span><br>
+      <span class="season">Internship Season: 2024–25 (3rd Year)</span>
+    </div>
+    <a class="read-more">Read Full Experience →</a>
+    <div class="full-experience">
+      <h4>The Selection Process</h4>
+      <p>My journey was unique: I applied for a Data Scientist role, but after the interviews, was offered a Management Consultant position in AI consulting based on my profile.</p>
+      <ol>
+          <li><strong>Online Assessment:</strong> Covered Python, basic ML concepts, aptitude, and probability.</li>
+          <li><strong>Technical Interviews:</strong> The first round was resume-based with a puzzle. The second round was a very broad discussion spanning finance, consulting, and product management.</li>
+          <li><strong>Final Discussion with Leadership:</strong> An informal chat with founders on wide-ranging topics. A key test was my ability to explain technical ML concepts to a non-technical audience.</li>
+      </ol>
+
+      <h4>Key Takeaways</h4>
+      <ul>
+          <li><strong>Expect the Unexpected:</strong> Be prepared for discussions far outside your immediate domain.</li>
+          <li><strong>Be a Translator:</strong> The ability to bridge the gap between technical and business teams is a huge plus.</li>
+          <li><strong>Confidence is Crucial:</strong> Adaptability matters just as much as your technical expertise.</li>
+      </ul>
+    </div>
+  </div>
+
+    <div class="intern-card" data-year="2024-25">
+    <div class="intern-photo">
+      <img src="assets/memberpics/Hemant.jpg" alt="Hemant Bidasaria">
+    </div>
+    <h3 class="intern-name">Hemant Bidasaria</h3>
+    <p class="golden-tip">💡 Golden Tip: Don’t just know your cases — own them. Be confident, structured, and calm, even when faced with something unexpected.</p>
+    <div class="intern-details">
+      <span class="role">Role: Consulting Intern</span><br>
+      <span class="company">Company: Boston Consulting Group (BCG)</span><br>
+      <span class="season">Internship Season: 2024–25 (4th Year)</span>
+    </div>
+    <a class="read-more">Read Full Experience →</a>
+    <div class="full-experience">
+      <h4>The Selection Process</h4>
+      <p>The journey to a BCG internship is a multi-stage process where your resume gets you in the door and your problem-solving skills get you the offer.</p>
+      <ul>
+          <li><strong>Stage 1 (Resume Shortlisting):</strong> This is the most crucial step. A strong resume focusing on a high CGPA, impactful Positions of Responsibility (PoRs), and extracurriculars is essential.</li>
+          <li><strong>Stage 2 (Buddy Program):</strong> Shortlisted candidates are paired with a BCG buddy to guide their preparation.</li>
+          <li><strong>Stage 3 (Interviews):</strong> I went through two rounds of intense problem-solving. Be prepared for unique cases that test your adaptability and confidence under pressure.</li>
+      </ul>
+
+      <h4>Preparation Strategy</h4>
+      <p>My preparation involved studying casebooks and watching YouTube videos, but the most critical part was conducting **mock interviews** with consultants and seniors to build speed and confidence.</p>
+
+      <h4>Key Lessons Learned</h4>
+      <ul>
+          <li><strong>Crack the Shortlist First:</strong> Your resume is half the battle.</li>
+          <li><strong>Practice is Everything:</strong> Solving cases live with peers is non-negotiable.</li>
+          <li><strong>Confidence is Key:</strong> How you deliver your answer is as important as the answer itself.</li>
+      </ul>
+    </div>
+  </div>
+
+<div class="intern-card" data-year="2024-25">
+    <div class="intern-photo">
+      <img src="assets/memberpics/Varnan.jpg" alt="Varnan">
+    </div>
+    <h3 class="intern-name">Varnan</h3>
+    <p class="golden-tip">💡 Golden Tip: For analyst roles, focus on aptitude practice and be confident in your projects — they will most likely be discussed in interviews.</p>
+    <div class="intern-details">
+      <span class="role">Role: Intern Analyst</span><br>
+      <span class="company">Company: On-campus Internship Drive</span><br>
+      <span class="season">Internship Season: 2024–25 (4th Year)</span>
+    </div>
+    <a class="read-more">Read Full Experience →</a>
+    <div class="full-experience">
+      <h4>The Recruitment Process</h4>
+      <p>The on-campus drive consisted of a two-hour online test followed by two interview rounds.</p>
+      <ul>
+          <li><strong>The Test:</strong> The first hour covered aptitude, a case study, and mental ability. The second hour had two DSA questions.</li>
+          <li><strong>The Interviews:</strong> The technical round focused entirely on the machine learning projects mentioned in my resume, while the HR round was a relaxed conversation.</li>
+      </ul>
+
+      <h4>Advice for Juniors</h4>
+      <p>For analyst roles, practice aptitude rigorously and be confident in your resume projects.</p>
+      
+      <h4>A Reality Check on On-Campus Internships</h4>
+      <p>Don't put all your hopes into the on-campus drive, especially if you aren't targeting SDE roles or don't have a very high CGPA. Focus instead on exploring your interests, networking on LinkedIn, and reaching out directly to companies that align with your goals.</p>
+    </div>
+  </div>
+
+<div class="intern-card" data-year="2023-24">
+    <div class="intern-photo">
+      <img src="assets/memberpics/Nandini.jpg" alt="Nandini Ruhela">
+    </div>
+    <h3 class="intern-name">Nandini Ruhela</h3>
+    <p class="golden-tip">💡 Golden Tip: Your introduction is your story—make it compelling. Even without a perfect answer, a structured approach and confidence can take you far.</p>
+    <div class="intern-details">
+      <span class="role">Role: Management Consulting Intern</span><br>
+      <span class="company">Company: Accenture</span><br>
+      <span class="season">Internship Season: 2023–24 (3rd Year)</span>
+    </div>
+    <a class="read-more">Read Full Experience →</a>
+    <div class="full-experience">
+      <h4>The Recruitment Process</h4>
+      <p>The selection process started with an online test and was followed by two interview rounds.</p>
+      <ul>
+          <li><strong>Online Test:</strong> Focused on Aptitude and English, similar in pattern to the CAT exam.</li>
+          <li><strong>Interview 1:</strong> Covered guesstimates, a retail industry case study, and introduction-based questions.</li>
+          <li><strong>Interview 2:</strong> A deeper dive into resume projects, tricky problem-solving questions, and HR queries like "Why consulting?".</li>
+      </ul>
+
+      <h4>Advice for Future Applicants</h4>
+      <ul>
+          <li><strong>Know Your Resume Thoroughly:</strong> Be prepared to elaborate on every single point.</li>
+          <li><strong>Craft Your Story:</strong> Your introduction is your first and most important impression. Turn your journey into a compelling narrative.</li>
+          <li><strong>Structure is Key:</strong> Even without a perfect answer for a case, demonstrating a logical and structured approach will earn you significant points.</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  </section>
+  
+  <div class="modal-overlay" id="experienceModal">
+    <div class="modal-content">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <h2 id="modal-title">Intern Experience</h2>
+      <p id="modal-experience">Full experience text will go here.</p>
+    </div>
+  </div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/company/society-of-business/posts/?feedView=all"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="https://www.instagram.com/socbiz_iitr/"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="https://github.com/socbiz-iitr"><img src="assets/github.png" alt="GitHub" /></a>
+        <a href="#"><img src="assets/Notion-logo.svg.png" alt="Notion" /></a>
+      </div>
+      <h4>Location:</h4>
+      <div class = "location">
+        <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+    </div> 
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    // --- Existing Filter Script ---
+    const filterSelect = document.getElementById("filterSelect");
+    const cards = document.querySelectorAll(".intern-card");
+
+    filterSelect.addEventListener("change", () => {
+      const selectedYear = filterSelect.value;
+      cards.forEach(card => {
+        // Add a small delay for the transition to be visible
+        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        if (selectedYear === "all" || card.dataset.year === selectedYear) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    });
+
+    // --- New Modal Script ---
+    const modal = document.getElementById('experienceModal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalExperience = document.getElementById('modal-experience');
+    const closeModal = document.getElementById('modalClose');
+    const readMoreLinks = document.querySelectorAll('.read-more');
+
+    // Function to open the modal
+    const openModal = (e) => {
+      // Prevent default link behavior if it's an anchor tag
+      e.preventDefault(); 
+      
+      // Get the parent card
+      const card = e.target.closest('.intern-card');
+      
+      // Get data from the card
+      const internName = card.querySelector('.intern-name').textContent;
+      const experienceText = card.querySelector('.full-experience').innerHTML;
+      
+      // Populate and show the modal
+      modalTitle.textContent = `${internName}'s Experience`;
+      modalExperience.innerHTML = experienceText;
+      modal.classList.add('active');
+    };
+
+    // Function to close the modal
+    const hideModal = () => {
+      modal.classList.remove('active');
+    };
+
+    // Add event listeners
+    readMoreLinks.forEach(link => {
+      link.addEventListener('click', openModal);
+    });
+
+    closeModal.addEventListener('click', hideModal);
+    
+    // Also close modal if user clicks on the overlay
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        hideModal();
+      }
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Winter Analytics Competition Page</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+<style>
+/* Hero Section */
+.event-hero {
+  padding: 120px 20px 60px;
+  text-align: center;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.event-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #00c389;
+  margin-bottom: 20px;
+}
+
+.event-hero .subtitle {
+  font-size: 1.5rem;
+  color: #374151;
+  margin-bottom: 30px;
+}
+
+.event-hero .description {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Event Details */
+.event-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.event-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.info-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #00c389;
+}
+
+.info-card h3 {
+  color: #00c389;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.info-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Competition Description */
+.competition-description {
+  background: #f9fafb;
+  padding: 40px;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+.competition-description h2 {
+  color: #00c389;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.competition-description p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+/* Agenda Section */
+.agenda-section {
+  background: #ffffff;
+  padding: 60px 40px;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+.agenda-section h2 {
+  text-align: center;
+  color: #00c389;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.agenda-item {
+  background: white;
+  margin: 20px 0;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.agenda-item h4 {
+  color: #00c389;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.agenda-item p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Why Participate */
+.why-participate {
+  background: #ffffff;
+  padding: 60px 40px;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+.why-participate h2 {
+  text-align: center;
+  color: #00c389;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.benefit-item {
+  background: white;
+  margin: 20px 0;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item h4 {
+  color: #00c389;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.benefit-item p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Register Section */
+.register-section {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #00c389 0%, #059669 100%);
+  color: white;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+.register-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.register-section p {
+  font-size: 1.125rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.register-btn {
+  background: white;
+  color: #00c389;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .event-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .event-hero .subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .event-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .agenda-section,
+  .why-participate,
+  .competition-description,
+  .register-section {
+    padding: 40px 20px;
+  }
+  
+  .agenda-section h2,
+  .why-participate h2 {
+    font-size: 2rem;
+  }
+}
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html">Intern Diaries</a></li>
+        <li><a href="about.html" >About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="event-hero">
+    <h1>Winter Analytics</h1>
+    <p class="subtitle">Annual Analytics Challenge</p>
+    <p class="description">Built exclusively for first-year undergraduates, serving as your entry point into the world of data-driven problem solving, strategic thinking, and real-world analytics.</p>
+  </section>
+
+  <!-- Event Info Cards -->
+  <section class="event-details">
+    <div class="event-info">
+      <div class="info-card">
+        <h3>Your First Big Doorway into Data</h3>
+        <p>Winter Analytics isn't just another competition—it's your launchpad into analytical thinking. No templates. No step-by-step guides. Just you, your ideas, and a real-world problem waiting to be cracked.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3>Not Just a Crowd, a Community</h3>
+        <p>It's not about numbers—but yes, 200+ students show up each year. What matters more is the energy: teams huddled over laptops, feedback flying, insights building. You'll be learning with—and from—your own batchmates.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3>Less Theory, More Doing</h3>
+        <p>Each edition comes with its own surprises. Whether it's notebooks, dashboards, or live pitches, you'll be tested on what you do—not what you know. If you can think it, build it, and explain it, you're ready.</p>
+      </div>
+    </div>
+
+    <!-- Competition Description -->
+    <div class="competition-description">
+      <h2>About Winter Analytics</h2>
+      <p>Winter Analytics is the annual flagship competition hosted by the Society of Business, IIT Roorkee. Built exclusively for first-year undergraduates, it serves as an entry point into the world of data-driven problem solving, strategic thinking, and real-world analytics.</p>
+      
+      <p>Participants engage with complex, real-world-inspired datasets and are expected to derive insights, identify trends, and present well-structured, data-backed recommendations—similar to what an analytics or consulting team would do in practice.</p>
+      
+      <p>With over 200 freshers participating each year, Winter Analytics has established itself as one of the most competitive and intellectually engaging events for first-year students on campus. The competition is conducted in multiple stages, designed to evaluate participants across a range of analytics and communication capabilities.</p>
+    </div>
+
+    <!-- Evaluation Parameters -->
+    <div class="agenda-section">
+      <h2>Evaluation Parameters</h2>
+      
+      <div class="agenda-item">
+        <h4>🗄️ Data Analysis & Insights</h4>
+        <p>How effectively participants extract meaningful insights from complex datasets and identify key trends</p>
+      </div>
+      
+      <div class="agenda-item">
+        <h4>🧠 Problem Structuring</h4>
+        <p>Logical approach to breaking down problems and developing structured analytical frameworks</p>
+      </div>
+      
+      <div class="agenda-item">
+        <h4>📄 Technical Implementation</h4>
+        <p>Quality of notebooks, code structure, and technical execution of analytical solutions</p>
+      </div>
+      
+      <div class="agenda-item">
+        <h4>🎤 Presentation & Communication</h4>
+        <p>How effectively insights are communicated through presentations and live discussions</p>
+      </div>
+    </div>
+
+    <!-- Why Participate -->
+    <div class="why-participate">
+      <h2>Why Participate in Winter Analytics?</h2>
+      
+      <div class="benefit-item">
+        <h4>Real Analytics Experience</h4>
+        <p>Apply analytical thinking to real-world data problems and develop critical problem-solving skills</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>Skill Development</h4>
+        <p>Learn how to structure ideas and communicate insights clearly to stakeholders</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>Hands-on Learning</h4>
+        <p>Experience what working on an actual analytics project feels like in a professional setting</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>Direct Feedback</h4>
+        <p>Receive valuable feedback from senior club members through direct interaction and live evaluations</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>Career Opportunities</h4>
+        <p>Winning teams receive a direct interview opportunity for the SocBiz Analytics vertical, and successful projects are formally acknowledged</p>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="register-section">
+      <h2>Ready to Explore More?</h2>
+      <p>Discover more about SocBiz and explore our other competitions, resources, and opportunities to grow your business and analytical skills.</p>
+      <button class="register-btn" onclick="window.location.href = '/'">
+        ← back to home
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Left section -->
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+    <!-- Center section -->
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Right section -->
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+        <a href="#"><img src="assets/Notion-logo.svg.png" alt="Notion" /></a>
+      </div>
+      <h4>Location:</h4>
+      <div class = "location">
+        <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+    </div> 
+    </div>
+    </div>
+
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Society of Business</title>
+     <link rel="stylesheet" href="css/style.css" />
+    <script defer src="js/script.js"></script>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Assumed Global Variables from your style.css */
+        :root {
+          --primary-green: #00c16b;
+          --dark-text: #2d3748;
+          --light-text: #718096;
+          --border-color: #e7eaf3;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 80px; /* Space for fixed navbar */
+        }
+
+        /* --- Main Content Container --- */
+        .resources-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        /* --- Tab Navigation --- */
+        .tabs-nav {
+            display: flex;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .tab-link {
+            padding: 18px 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--light-text);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .tab-link:hover {
+            color: var(--dark-text);
+        }
+        .tab-link.active {
+            color: var(--primary-green);
+            border-bottom-color: var(--primary-green);
+        }
+        
+        /* --- Tab Content --- */
+        .tabs-content {
+            padding: 40px;
+        }
+        .tab-pane {
+            display: none; /* Hidden by default */
+        }
+        .tab-pane.active {
+            display: block; /* Shown by JS */
+        }
+
+        /* --- General Content Formatting --- */
+        .resource-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+        }
+        .resource-intro {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            margin-bottom: 30px;
+            border-left: 3px solid var(--border-color);
+            padding-left: 20px;
+        }
+        .resource-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .resource-section p, .resource-section li {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .resource-section ul {
+            padding-left: 20px;
+        }
+
+        /* Specific styling for questions and answers */
+        .question-block {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-green);
+            border-radius: 8px;
+        }
+        .question-block .question {
+            font-weight: 600;
+            font-style: italic;
+            color: var(--dark-text);
+        }
+        .answer-label {
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-top: 15px;
+        }
+        .answer-label.excellent {
+            color: var(--primary-green);
+        }
+
+        /* Guesstimate Calculation Box */
+        .calc-box {
+            background-color: #f8f9fa;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-family: 'Menlo', 'Monaco', monospace;
+            font-size: 0.95rem;
+        }
+        .calc-box .final-result {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        /* Data Table Styling */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .data-table thead th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        .data-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="blogs.html">Intern Diaries</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+
+<main>
+    <div class="resources-container">
+        <!-- Tab Navigation -->
+        <nav class="tabs-nav">
+            <div class="tab-link active" data-tab="case-study">Case Study</div>
+            <div class="tab-link" data-tab="guesstimate">Guesstimate</div>
+            <div class="tab-link" data-tab="data-points">Data Points</div>
+        </nav>
+
+        <!-- Tab Content Panes -->
+        <div class="tabs-content">
+
+            <!-- Case Study Pane -->
+            <div class="tab-pane active" id="case-study">
+                <div class="resource-section">
+                    <h2 class="resource-title">Whisky Distributor Case Study</h2>
+                    <p class="resource-intro">This case involves a real-life consulting assignment with a manufacturer and distributor of whisky. This is a “conceptual” case where problem identification and idea generation are tested.</p>
+                    
+                    <h3>Background</h3>
+                    <p>The client was a first mover in promoting imported whisky in bars, discos and karaoke clubs, a fast-growing business in an emerging market. They experienced tremendous success with over 30% annual growth by partnering with key outlets, offering sponsorships and rebates for exclusive sales. However, growth has slowed to 10% per year and profit margins are declining.</p>
+                    <p><b>Objective:</b> Understand the reasons for the slowdown and then explore strategic options to rebuild growth.</p>
+
+                    <div class="question-block">
+                        <p class="question">First question: What information would you require to help explain the slowing down of growth?</p>
+                        <p class="answer-label">The Good Answer:</p>
+                        <ul>
+                            <li>The growth of the bar/disco channel is peaking; the number of new outlets is no longer increasing.</li>
+                            <li>The whisky category has reached a high "share of throat" in this channel and is unlikely to grow further through penetration.</li>
+                            <li>Competitors saw the opportunity and started to invest, eroding some of the client's market share.</li>
+                        </ul>
+                        <p class="answer-label excellent">The Excellent Answer: (All of the above, plus)</p>
+                        <ul>
+                            <li>The client's advertising campaign is 5 years old, and the brand image is aging, making it hard to recruit new, younger consumers.</li>
+                            <li>There's a lack of aspiration for consumers to upgrade to more premium products from the client.</li>
+                            <li>The category life cycle is short; as the initial batch of consumers ages, they go to bars less frequently and are leaving the market.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question-block">
+                        <p class="question">Second question: What is driving profitability down?</p>
+                        <p class="answer-label">The Good Answer:</p>
+                        <ul>
+                            <li>Increased competition has driven prices down and limited room for price increases.</li>
+                            <li>Competition has driven up trade marketing costs, as outlet owners have more bargaining power and demand more sponsorships.</li>
+                            <li>Imported goods are subject to currency fluctuations.</li>
+                        </ul>
+                        <p class="answer-label excellent">The Excellent Answer: (All of the above, plus)</p>
+                        <ul>
+                           <li>As the business expanded, the client partnered with smaller, weaker outlets that provided a lower return on investment.</li>
+                        </ul>
+                    </div>
+
+                    <div class="question-block">
+                        <p class="question">Third question: What are the potential strategic options?</p>
+                        <p>Here are some options that can be explored:</p>
+                        <ul>
+                           <li>Revitalize the brand with a new campaign to improve competitiveness.</li>
+                           <li>Premiumize the market and encourage consumers to up-trade to higher-value products.</li>
+                           <li>Seek opportunities in less competitive rural areas.</li>
+                           <li>Explore new channels, such as in-home or restaurant consumption.</li>
+                           <li>Innovate on delivery to create a competitive advantage.</li>
+                           <li>Improve the outlet selection process to focus on high-return partners.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guesstimate Pane -->
+            <div class="tab-pane" id="guesstimate">
+                <div class="resource-section">
+                    <h2 class="resource-title">Sample Guesstimate</h2>
+                    <div class="question-block">
+                        <p class="question">A washing machine manufacturing company wants to enter the Indian Market. Estimate the number of washing machines they would sell, assuming their market share to be 2%?</p>
+                    </div>
+
+                    <h3>Solution</h3>
+                    <p>We'll approach this from the demand side, calculating sales from both the <strong>replacement market</strong> (people replacing old machines) and the <strong>growth market</strong> (first-time buyers).</p>
+
+                    <div class="calc-box">
+                        <p><strong>Step 1: Estimate Existing Machines (Replacement Market)</strong></p>
+                        <p>Total Population: 120 crores</p>
+                        <p>Avg. Family Size: 4</p>
+                        <p>Total Families: 120 / 4 = 30 crores</p>
+                        <p>Assume total penetration leads to ~8.37 crore machines in India.</p>
+                        <hr>
+                        <p>Average lifespan of a washing machine: 8 years</p>
+                        <p>Annual replacement market: 8.37 crore / 8 ≈ 1.05 crore machines/year</p>
+                        <p>Client's Market Share: 2%</p>
+                        <p class="final-result">Sales from replacements = 1.05 crore * 2% = 2.1 lakhs</p>
+                    </div>
+
+                    <div class="calc-box">
+                        <p><strong>Step 2: Estimate New Buyers (Growth Market)</strong></p>
+                        <p>Assume market growth rate: 10% per year</p>
+                        <p>New customers = 8.37 crore * 10% = 0.837 crore new buyers/year</p>
+                        <p>Client's Market Share: 2%</p>
+                        <p class="final-result">Sales to new customers = 0.837 crore * 2% ≈ 1.67 lakhs</p>
+                    </div>
+
+                    <h3>Final Estimation</h3>
+                    <div class="question-block">
+                        <p class="final-result">Total machines sold = 2.1 lakhs (replacement) + 1.67 lakhs (new) = 3.77 lakhs</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Points Pane -->
+            <div class="tab-pane" id="data-points">
+                <div class="resource-section">
+                    <h2 class="resource-title">Common Data for Guesstimates</h2>
+                    <p class="resource-intro">A quick reference for common demographic and economic data points used in guesstimates for India and the world.</p>
+
+                    <h3>Population</h3>
+                    <table class="data-table">
+                        <thead><tr><th>Location</th><th>Population</th></tr></thead>
+                        <tbody>
+                            <tr><td>World</td><td>8 billion</td></tr>
+                            <tr><td>India</td><td>1.4 billion (140 Cr)</td></tr>
+                            <tr><td>USA</td><td>330 million</td></tr>
+                            <tr><td>Canada</td><td>4 Cr</td></tr>
+                            <tr><td>Delhi</td><td>3 Cr</td></tr>
+                            <tr><td>Bangalore</td><td>1 Cr</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Demographics</h3>
+                    <table class="data-table">
+                        <thead><tr><th>Metric</th><th>India</th><th>World (Approx.)</th></tr></thead>
+                        <tbody>
+                            <tr><td>Urban / Rural Split</td><td>30% / 70%</td><td>55% / 45%</td></tr>
+                            <tr><td>Age Split (0-14)</td><td>~25%</td><td>~25%</td></tr>
+                            <tr><td>Age Split (15-59)</td><td>~65%</td><td>~60%</td></tr>
+                            <tr><td>Age Split (60+)</td><td>~10%</td><td>~15%</td></tr>
+                            <tr><td>Gender Split</td><td colspan="2">~50% Male / 50% Female</td></tr>
+                        </tbody>
+                    </table>
+
+                     <h3>Income & Occupation (India)</h3>
+                     <table class="data-table">
+                        <thead><tr><th>Category</th><th>Segment</th><th>Percentage</th></tr></thead>
+                        <tbody>
+                            <tr><td>Urban Income</td><td>Lower</td><td>40%</td></tr>
+                            <tr><td>Urban Income</td><td>Middle</td><td>40%</td></tr>
+                            <tr><td>Urban Income</td><td>Higher</td><td>20%</td></tr>
+                            <tr><td>Rural Income</td><td>BPL</td><td>20%</td></tr>
+                            <tr><td>Rural Income</td><td>Lower</td><td>30%</td></tr>
+                            <tr><td>Rural Income</td><td>Middle</td><td>40%</td></tr>
+                            <tr><td>Rural Income</td><td>Upper</td><td>10%</td></tr>
+                            <tr><td>Occupation</td><td>Agriculture/Fishery</td><td>40%</td></tr>
+                            <tr><td>Occupation</td><td>Industry</td><td>25%</td></tr>
+                            <tr><td>Occupation</td><td>Services</td><td>35%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+        <a href="#"><img src="assets/Notion-logo.svg.png" alt="Notion" /></a>
+      </div>
+      <h4>Location:</h4>
+      <div class = "location">
+        <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+    </div> 
+    </div>
+  </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabs = document.querySelectorAll(".tab-link");
+        const panes = document.querySelectorAll(".tab-pane");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                // Remove active class from all tabs and panes
+                tabs.forEach(item => item.classList.remove("active"));
+                panes.forEach(pane => pane.classList.remove("active"));
+
+                // Add active class to clicked tab and corresponding pane
+                tab.classList.add("active");
+                const targetPane = document.getElementById(tab.dataset.tab);
+                if(targetPane) {
+                    targetPane.classList.add("active");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

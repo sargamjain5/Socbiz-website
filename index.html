@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Society of Business</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* === Global CSS === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      width: 100%;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    
+    body {
+      background-image: url('assets/bg.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto; /* Ensure background scales */
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 36px;
+      color: #424242;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    /* === Navbar === */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: transparent;
+      z-index: 999;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: black;
+      text-decoration: none;
+      font-weight: 300;
+      padding-bottom: 4px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: #00c286;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #00c286;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .hamburger-menu {
+      display: none; /* Hidden on desktop */
+      cursor: pointer;
+    }
+    
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    /* === Hero Section === */
+    .hero {
+      padding-top: 150px;
+      text-align: center;
+      color: #424242;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .center-logo {
+      height: 150px;
+      margin-bottom: 1.5rem;
+      margin-top: 4vh;
+    }
+
+    .hover-effect {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hover-effect span {
+      color: #424242;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .hover-effect span:hover {
+      color: #00c286;
+      transform: translateY(-5px);
+      text-shadow: 0 5px 15px rgba(0, 194, 134, 0.4);
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.3rem;
+      color: #444;
+    }
+    
+    /* === Stats Section === */
+    .stats-section {
+      padding: 5rem 0;
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #e7eaf3;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      flex: 1;
+      min-width: 280px;
+      max-width: 320px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 193, 107, 0.12);
+    }
+
+    .stat-card--highlight {
+      border: 2px solid #00c16b;
+      box-shadow: 0 8px 25px rgba(0, 193, 107, 0.08);
+    }
+
+    .stat-icon {
+      margin-bottom: 1rem;
+      color: #00c16b;
+    }
+    .stat-icon svg {
+        stroke-width: 1.5;
+    }
+
+    .stat-number {
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: #2d3748;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #718096;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    /* === Projects Section === */
+/* === Projects Section (Clean White Design) === */
+        .projects-section-glass {
+            padding: 80px 20px;
+            background-color: #ffffff; /* Set background to white */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .projects-section-glass .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .projects-section-glass .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* Updated text colors for light background */
+        .projects-section-glass .section-title {
+            color: #2c3e50; /* Dark color for title */
+            margin-bottom: 10px;
+        }
+
+        .projects-section-glass .section-subtitle {
+            color: #7f8c8d; /* Medium grey for subtitle */
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .projects-grid-glass {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        /* Updated Card Style for Light Background */
+        .project-card-glass {
+            background: #f8f9fa; /* Light grey card background */
+            border-radius: 16px;
+            border: 1px solid #e2e8f0; /* Subtle border */
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card-glass:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card-glass .project-logo {
+            height: 70px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-card-glass .project-logo img {
+            max-height: 55px;
+            object-fit: contain;
+        }
+
+        .project-card-glass .project-logo svg {
+            stroke: #00c16b; /* Green icon for the last card */
+        }
+
+        /* Updated text colors for visibility on light cards */
+        .project-card-glass h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            color: #2c3e50; /* Dark text */
+        }
+
+        .project-card-glass p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4a5568; /* Medium-dark grey text */
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        /* Updated link style for contrast */
+        .card-link {
+            display: inline-block;
+            background-color: #00c16b;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-link:hover {
+            background-color: #00a75c;
+        }
+
+    /* === Testimonials Section === */
+    .testimonials-section {
+      padding: 6rem 0;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .testimonials-scroller {
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    }
+
+    .scroller-track {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      animation: scroll 40s linear infinite;
+    }
+
+    .testimonials-scroller:hover .scroller-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(-100% / 2)); }
+    }
+
+    .testimonial-card {
+      flex-shrink: 0;
+      width: 360px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1rem 1.5rem; 
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(45, 53, 60, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+    }
+    .card-logo img { width: 100px; height: 100px; object-fit: contain; }
+    .card-text p { font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 1.5rem 0; }
+    
+    /* === Featured Events === */
+    .featured-events {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .event-grid {
+      display: flex;
+      overflow-x: auto;
+      gap: 30px;
+      padding: 10px;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .event-grid::-webkit-scrollbar {
+      display: none;
+    }
+    .event-grid {
+      scrollbar-width: none;
+    }
+
+    .event-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 300px;
+      padding: 25px;
+      flex: 0 0 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      scroll-snap-align: start;
+    }
+
+    .event-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 60%);
+      z-index: 1;
+      transition: background 0.4s ease;
+    }
+
+    .event-card:hover::before {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 60%);
+    }
+
+    .event-card-content {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+      color: #ffffff;
+    }
+    
+    .event-card-content h3 { font-size: 1.5rem; font-weight: 700; margin: 0 0 5px 0; line-height: 1.2; }
+    .event-card-content .event-date { font-size: 0.9rem; font-weight: 500; color: #e0e0e0; margin: 0; }
+
+    /* === Achievements Section === */
+
+        .achievements-section-trophy-room {
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Masonry-style grid layout */
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-auto-rows: minmax(150px, auto);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trophy-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+            text-align: left;
+            /* For the 3D hover effect */
+            transform-style: preserve-3d;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .trophy-card:hover {
+            transform: perspective(1000px) rotateY(var(--rotate-y, 0)) rotateX(var(--rotate-x, 0)) scale3d(1.05, 1.05, 1.05);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+        }
+
+        /* Spanning items in the grid */
+        .trophy-card.tall { 
+            grid-row: span 2; 
+        }
+
+        .trophy-card h3 {
+            font-size: 1.2rem;
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .trophy-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .trophy-card strong {
+            color: #00c16b;
+            font-weight: 600;
+        }
+
+        .trophy-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .trophy-card li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #4a5568;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .trophy-card li::before {
+            content: '🏅'; /* Medal emoji as bullet point */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .trophy-card.tall {
+                grid-row: span 1;
+            }
+        }
+
+
+    /*
+    ==============================================
+    === RESPONSIVE MEDIA QUERIES FOR ALL DEVICES ===
+    ==============================================
+    */
+    @media (max-width: 992px) { /* Tablet Styles */
+      .navbar {
+        padding: 1rem 2rem;
+      }
+      .hover-effect {
+        font-size: 2.5rem;
+      }
+      .project-card {
+        flex: 0 0 45%; /* Show ~2 cards on tablet */
+      }
+    }
+
+    @media (max-width: 768px) { /* Mobile Styles */
+      body {
+        background-size: cover; /* Use cover for mobile background */
+      }
+      .navbar {
+        padding: 1rem;
+      }
+      .nav-links {
+        display: none; /* Hide desktop links */
+        position: absolute;
+        right: 0;
+        top: 80px; /* Height of navbar */
+        background: white;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+      .nav-links.active {
+        display: flex; /* Show when active */
+      }
+      .nav-links li {
+        padding: 1rem 0;
+      }
+      .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+      }
+      
+      .hero {
+        padding-top: 120px;
+      }
+      .center-logo { height: 120px; }
+      .hover-effect { font-size: 2rem; }
+      .hero p { font-size: 1.1rem; padding: 0 1rem; }
+      
+      .stat-number { font-size: 3.5rem; }
+
+      .project-card {
+        flex: 0 0 80%; /* Show 1 card at a time on mobile */
+      }
+
+      .testimonial-card {
+        width: 85vw; /* Make cards responsive */
+      }
+      
+      .event-card {
+        flex: 0 0 80vw;
+      }
+      
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html">Intern Diaries</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div class="hero-content">
+      <img src="assets/socbizLogo.png" class="center-logo fade-in-up" alt="Center Logo" />
+      <h1 class="hover-effect fade-in-up">
+        <span>IDEATE.</span>
+        <span>STRATEGIZE.</span>
+        <span>ANALYSE.</span>
+      </h1>
+      <p class="fade-in-up">
+        Driven by passion and purpose, we cultivate the next generation of business leaders across
+        <b>Consulting</b>, <b>Product Management</b>, and <b>Analytics</b> at IIT Roorkee.
+      </p>
+    </div>
+  </main>
+
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+          </div>
+          <div class="stat-number" data-target="25">0</div>
+          <div class="stat-label">STARTUPS</div>
+        </div>
+        <div class="stat-card stat-card--highlight">
+          <div class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <div class="stat-number" data-target="30">0</div>
+          <div class="stat-label">PROJECTS DELIVERED</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <div class="stat-number" data-target="30">0</div>
+          <div class="stat-label">COMPETITION WINS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+     
+<section class="projects-section-glass">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our Projects</h2>
+            <p class="section-subtitle">We partner with innovative startups and global industry leaders to solve real-world business challenges.</p>
+        </div>
+        
+        <div class="projects-grid-glass">
+
+            <!-- Tvelp Project Card -->
+            <div class="project-card-glass">
+                <div class="project-logo">
+                    <img src="assets/Tvelp.png" alt="Tvelp Logo" />
+                </div>
+                <p>Helped an international shopping platform expand its reach and optimize user experience through strategic marketing and product improvements.</p>
+                <a href="tvelp.html" class="card-link">View Project</a>
+            </div>
+
+            <!-- Coversure Project Card -->
+            <div class="project-card-glass">
+                <div class="project-logo">
+                    <img src="assets/Coversure.png" alt="Coversure Logo" />
+                </div>
+                <p>Worked on product management, user research, and go-to-market strategy for a pioneering AI-first InsurTech platform in India.</p>
+                <a href="#" class="card-link">View Project</a>
+            </div>
+
+            <!-- Saint Gobain Project Card -->
+            <div class="project-card-glass">
+                <div class="project-logo">
+                    <img src="assets/ SaintGobain.png" alt="Saint Gobain Logo" />
+                </div>
+                <p>Provided actionable insights for business transformation by analyzing decarbonization trends and organizational structures.</p>
+                <a href="#" class="card-link">View Project</a>
+            </div>
+          
+            <!-- Criminal Investigation Project Card -->
+            <div class="project-card-glass">
+                <div class="project-logo">
+                    <!-- Using an SVG icon instead of an image -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                </div>
+                <h4>Criminal Investigation Automation</h4>
+                <p>Leveraged data and automation for real-world applications in public safety in partnership with academic and industry experts.</p>
+                <a href="#" class="card-link">View Project</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title">What Our Collaborators Say</h2>
+      <div class="testimonials-scroller">
+        <div class="scroller-track">
+          <div class="testimonial-card">
+            <div class="card-header"><div class="card-logo"><img src="assets/logos/pharoscion.png" alt="Logo"></div></div>
+            <div class="card-text"><p>“The team’s enthusiasm, sharp thinking, and knack for turning ideas into practical solutions really stood out.”</p></div>
+          </div>
+          <div class="testimonial-card">
+            <div class="card-header"><div class="card-logo"><img src="assets/logos/Mindshift.jpg" alt="Logo"></div></div>
+            <div class="card-text"><p>“They didn’t just code, they asked why it mattered, and adjusted designs accordingly. Working with them made data feel alive.”</p></div>
+          </div>
+          <div class="testimonial-card"><a href="autofit.html" style="text-decoration: none; color: inherit;">
+            <div class="card-header"><div class="card-logo"><img src="assets/logos/autofit.jpg" alt="Logo"></div></div>
+            <div class="card-text"><p>“Their thoughtful approach kept ideas grounded in real usage and kept tech and empathy in sync.”</p></div>
+          </a></div>
+          <div class="testimonial-card"><a href="tvelp.html" style="text-decoration: none; color: inherit;">
+            <div class="card-header"><div class="card-logo"><img src="assets/Tvelp.png" alt="Logo"></div></div>
+            <div class="card-text"><p>“They jump in, build with empathy, and make ideas happen, making collaboration feel natural.”</p></div>
+          </a></div>
+          <div class="testimonial-card"><a href="crowwd.html" style="text-decoration: none; color: inherit;">
+            <div class="card-header"><div class="card-logo"><img src="assets/logos/crowwd.jpg" alt="Logo"></div></div>
+            <div class="card-text"><p>“Collaborating with them has been seamless and inspiring...we’re looking forward to seeing where they take the concept of community next.”</p></div>
+          </a></div>
+          <div class="testimonial-card">
+            <div class="card-header"><div class="card-logo"><img src="assets/logos/pharoscion.png" alt="Logo"></div></div>
+            <div class="card-text"><p>“The team’s enthusiasm, sharp thinking, and knack for turning ideas into practical solutions really stood out.”</p></div>
+          </div>
+          <div class="testimonial-card">
+            <div class="card-header"><div class="card-logo"><img src="assets/logos/Mindshift.jpg" alt="Logo"></div></div>
+            <div class="card-text"><p>“They didn’t just code, they asked why it mattered, and adjusted designs accordingly. Working with them made data feel alive.”</p></div>
+          </div>
+          <div class="testimonial-card"><a href="autofit.html" style="text-decoration: none; color: inherit;">
+            <div class="card-header"><div class="card-logo"><img src="assets/logos/autofit.jpg" alt="Logo"></div></div>
+            <div class="card-text"><p>“Their thoughtful approach kept ideas grounded in real usage and kept tech and empathy in sync.”</p></div>
+          </a></div>
+          <div class="testimonial-card"><a href="tvelp.html" style="text-decoration: none; color: inherit;">
+            <div class="card-header"><div class="card-logo"><img src="assets/Tvelp.png" alt="Logo"></div></div>
+            <div class="card-text"><p>“They jump in, build with empathy, and make ideas happen, making collaboration feel natural.”</p></div>
+          </a></div>
+          <div class="testimonial-card"><a href="crowwd.html" style="text-decoration: none; color: inherit;">
+            <div class="card-header"><div class="card-logo"><img src="assets/logos/crowwd.jpg" alt="Logo"></div></div>
+            <div class="card-text"><p>“Collaborating with them has been seamless and inspiring...we’re looking forward to seeing where they take the concept of community next.”</p></div>
+          </a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-events">
+    <div class="container">
+      <h2 class="section-title">Featured Events</h2>
+      <div class="event-grid">
+        <a href="conqu.html" class="event-card" style="background-image: url('assets/conquest.png');">
+          <div class="event-card-content">
+            <h3>Conquest</h3>
+            <p class="event-date">July 15, 2025</p>
+          </div>
+        </a>
+        <a href="business_baaz.html" class="event-card" style="background-image: url('assets/Business_baazigar.png');">
+          <div class="event-card-content">
+            <h3>Business Baazigar</h3>
+            <p class="event-date">August 2, 2025</p>
+          </div>
+        </a>
+        <a href="analytics.html" class="event-card" style="background-image: url('assets/data_analytics.png');">
+          <div class="event-card-content">
+            <h3>Winter Analytics</h3>
+            <p class="event-date">August 20, 2025</p>
+          </div>
+        </a>
+        <a href="aeonea.html" class="event-card" style="background-image: url('assets/aeonea.png');">
+          <div class="event-card-content">
+            <h3>Aeonea</h3>
+            <p class="event-date">IITR 175th Anniversary</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<section class="achievements-section-trophy-room">
+    <div class="section-header">
+        <h2 class="section-title">Achievements & Legacy</h2>
+        <p class="section-subtitle">A showcase of the milestones and victories that define our journey.</p>
+    </div>
+
+    <div class="trophy-grid">
+        <!-- Card 1: Tall Plaque -->
+        <div class="trophy-card tall">
+            <h3>🏆 Winners at Inter-IIT Tech Meet</h3>
+            <ul>
+                <li><strong>Gold Medal:</strong> Consult and Analytics Challenge (2023)</li>
+                <li><strong>Silver Medal:</strong> Product Case Challenge (2023)</li>
+                <li><strong>Bronze Medal:</strong> Consult (2018 & 2022)</li>
+                <li><strong>Bronze Medal:</strong> Product Case Challenge (2021)</li>
+            </ul>
+        </div>
+
+        <!-- Card 2: Standard Plaque -->
+        <div class="trophy-card">
+            <h3>🏆 National Finalists</h3>
+            <p>KPMG Ideation Challenge (2022)</p>
+        </div>
+
+        <!-- Card 3: Standard Plaque -->
+        <div class="trophy-card">
+            <h3>🏆 Gold Medal</h3>
+            <p>Analytics Datathon, NIUA</p>
+        </div>
+
+        <!-- Card 4: Standard Plaque -->
+        <div class="trophy-card">
+            <h3>🏆 Global Competition Winners</h3>
+            <p>Global Case Competition in Consult (2023)</p>
+        </div>
+        
+        <!-- Card 5: Standard Plaque -->
+        <div class="trophy-card">
+            <h3>🏆 Flagship Events</h3>
+            <p>Hosted events like Business Baazigar & Pan India Case Competition with over <strong>3,000+</strong> participants.</p>
+        </div>
+        
+        <!-- Card 6: Standard Plaque -->
+        <div class="trophy-card">
+            <h3>🤝 Collaborative Research</h3>
+            <p>Partnered with global companies on high-impact projects from criminal investigation automation to decarbonization trends.</p>
+        </div>
+    </div>
+</section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+        <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-socials">
+        <h4>Follow us:</h4>
+        <div class="social-icons">
+          <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+          <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="assets/Notion-logo.svg.png" alt="Notion" /></a>
+        </div>
+        <h4>Location:</h4>
+        <div class = "location">
+          <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+        </div> 
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Stats counter animation
+    document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll(".stat-number");
+      const speed = 200; // Animation speed
+
+      const animateCounter = (counter) => {
+        const target = +counter.getAttribute("data-target");
+        const updateCount = () => {
+          const count = +counter.innerText;
+          const increment = target / speed;
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 1);
+          } else {
+            counter.innerText = target + "+";
+          }
+        };
+        updateCount();
+      };
+      
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      counters.forEach(counter => observer.observe(counter));
+    });
+
+    // Testimonials marquee duplication for seamless loop
+    const scroller = document.querySelector(".testimonials-scroller");
+    if (scroller) {
+      const track = scroller.querySelector(".scroller-track");
+      const items = Array.from(track.children);
+      items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+    }
+  </script>
+<script>
+    // JavaScript for the 3D Hover Effect
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = document.querySelectorAll('.trophy-card');
+
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                const rotateX = -y / 20; // Control tilt intensity
+                const rotateY = x / 20;
+
+                card.style.setProperty('--rotate-x', `${rotateX}deg`);
+                card.style.setProperty('--rotate-y', `${rotateY}deg`);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--rotate-x', '0deg');
+                card.style.setProperty('--rotate-y', '0deg');
+            });
+        });
+    });
+</script>
+</body>
+</html>

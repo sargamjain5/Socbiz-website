@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Who are We? | Society of Business, IIT Roorkee</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="js/script.js"></script>
+  <style>
+
+ html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%; /* Ensures the body is at least as tall as the viewport */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1; /* This is the key: it makes the main content push the footer down */
+}
+    .page-section { /* Changed from "section" to ".page-section" */
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    /* Fade-in on Scroll Animation */
+    .fade-in-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-scroll.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Who Are We Section */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 10vh;
+    }
+    .about-text {
+      flex: 1 1 55%;
+    }
+    .about-text h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #000;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--dark-text);
+      text-align: justify;
+    }
+    .about-text .secondary {
+      font-weight: 500;
+      color: var(--light-text);
+      margin-top: 20px;
+    }
+    .about-logo {
+      flex: 1 1 35%;
+      text-align: center;
+    }
+    .about-logo img {
+      max-width: 300px;
+      height: auto;
+    }
+
+    /* Our Verticals Section */
+    /* Our Verticals Section */
+.Verticals {
+  margin-top: 40px;
+}
+
+.Verticals h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Wrapper for nav + details */
+.project-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Side Navigation */
+.project-nav {
+  width: 200px;
+  padding: 20px;
+  border-right: 1px solid #eee;
+  align-self: center;
+  font-size: larger;
+}
+
+.project-nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.project-nav li {
+  padding: 10px 0;
+  cursor: pointer;
+  margin-bottom: 40px;
+  color: #666;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.project-nav li.active {
+  font-weight: bold;
+  color: #02e75e;
+}
+
+/* Project Details Container */
+.project-details {
+  flex: 1;
+  padding: 0 10px;
+}
+
+/* Project Card */
+.project {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  text-align: justify;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
+}
+
+.project h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.project-left {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.project-right {
+  flex: 1;
+}
+
+.project p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.project-img {
+  max-width: 70%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+    /* Meet Our Team Section */
+    .team-section {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #ffffff;
+    }
+    .team-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-green);
+      margin-bottom: 20px;
+    }
+    .team-subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--dark-text);
+      margin-top: 60px;
+      margin-bottom: 30px;
+      text-align: left;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 30px;
+    }
+    .team-member {
+      background: #fff;
+      padding: 20px 10px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .team-member:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .team-member.hidden {
+      display: none;
+    }
+    .team-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      overflow: hidden;
+      border: 3px solid var(--border-color);
+    }
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .team-member h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 10px 0 5px;
+    }
+    .team-member p {
+      font-size: 0.9rem;
+      color: var(--light-text);
+      margin: 0;
+    }
+    .team-socials {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    .team-socials a img {
+      width: 22px;
+      height: 22px;
+      transition: transform 0.3s ease;
+    }
+    .team-socials a:hover img {
+      transform: scale(1.2);
+    }
+    .toggle-btn {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 10px 25px;
+        background-color: var(--primary-green);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+    .toggle-btn:hover {
+        background-color: #00a06d;
+    }
+    
+    
+    /* Footer Styles */
+    /* Assuming footer styles are in style.css */
+
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .project-wrapper {
+        flex-direction: column;
+      }
+      .project-nav {
+        width: 100%;
+        border-right: none;
+      }
+      .project-nav ul {
+        position: static;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .project-nav li {
+        border-left: none;
+        border-bottom: 4px solid transparent;
+        border-radius: 5px;
+      }
+      .project-nav li.active {
+        border-bottom-color: var(--primary-green);
+      }
+      .project {
+          flex-direction: column;
+          text-align: center;
+      }
+      .team-subtitle {
+          text-align: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html">Intern Diaries</a></li>
+        <li><a href="about.html"  class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+<main>
+  <section class="page-section">
+    <div class="about-container fade-in-scroll">
+      <div class="about-text">
+        <h2>Who are We?</h2>
+        <p>
+          Society of Business, IIT Roorkee (SocBiz IITR) is a premier student organization dedicated to developing proficient problem solvers and future business leaders in Consulting, Product Management, and Data Analytics. Established in 2009 and rebranded in 2023, SocBiz IITR fosters an environment that encourages the exploration and application of business acumen to real-world challenges.
+        </p>
+        <p class="secondary">
+          We collaborate with industry leaders, engage in impactful projects, and offer a platform for students to learn, experiment, and excel. Our initiatives include comprehensive training modules, workshops with industry experts, and participation in national and international competitions.
+        </p>
+      </div>
+      <div class="about-logo">
+        <img src="assets/socbizLogo.png" alt="SocBiz Logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Verticals Section -->
+  <section class="Verticals fade-in-scroll page-section">
+    <h1>Our Verticals</h1>
+    <div class="project-wrapper">
+      <nav class="project-nav">
+        <ul>
+          <li class="active" data-target="consulting">Consulting</li>
+          <li data-target="product-management">Product Management</li>
+          <li data-target="data-analytics">Data Analytics</li>
+        </ul>
+      </nav>
+
+      <div class="project-details">
+        <div class="project" id="consulting">
+           <div class="project-left">
+           <img src="assets/consult copy.png" class="project-img" alt="Consulting"></div>
+           <div class="project-right"><p>
+            We train students in structured problem solving, guesstimates, and case cracking, preparing them for consulting roles at top firms. Members work on live projects and gain real-world experience through case competitions and mentorship.
+          </p>
+        </div>
+       </div>
+
+        <div class="project" id="product-management">
+        <div class="project-left">
+          <img src="assets/Product.png" class="project-img" alt="Product Management"></div>
+          <div class="project-right"><p>
+            We guide students through the fundamentals of product thinking, user-centric design, wireframing, and roadmap building. Our workshops and case-based modules empower them to think like product managers from day one.
+          </p></div>
+        </div>
+
+        <div class="project" id="data-analytics">
+        <div class="project-left">
+          <img src="assets/Analytics copy.png" class="project-img" alt="Data Analytics"></div>
+          <div class="project-right"><p>
+            From Excel and SQL to Python and Machine Learning, we offer hands-on training to help students turn data into decisions. Members work on analytics projects, participate in datathons, and develop dashboards with real datasets.
+          </p></div>
+        </div>
+      </div>
+    </div>
+
+  <section class="team-section page-section">
+  <h2 class="team-title">Meet Our Team</h2>
+  <div class="team-grid">
+
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Dhruv" alt="Dhruv Agrawal"></div><h4>Dhruv Agrawal</h4><p>President</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/abhishek" alt="Abhishek Mittal"></div><h4>Abhishek Mittal</h4><p>President</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/divyansh" alt="Divyansh Taya"></div><h4>Divyansh Taya</h4><p>President</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/agam" alt="Agam Pandey"></div><h4>Agam Pandey</h4><p>Vice-President</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/eva.jpg" alt="Eva Rajput"></div><h4>Eva Rajput</h4><p>Vice-President</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/satyam.jpg" alt="Satyam Sinha"></div><h4>Satyam Sinha</h4><p>Vice-President</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Kavya_Rajput_Product_3y.jpg" alt="Kavya Rajput"></div><h4>Kavya Rajput</h4><p>Project Manager</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Vatsal Tyagi_Product_3rd.jpg" alt="Vatsal Tyagi"></div><h4>Vatsal Tyagi</h4><p>Project Manager</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/vigneshwar.jpg" alt="Vigneshwar Nadar"></div><h4>Vigneshwar Nadar</h4><p>Project Manager</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/aakarsh.jpg" alt="Aakarsh Agrawal"></div><h4>Aakarsh Agrawal</h4><p>Project Manager</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Chesta_consult.jpg" alt="Chesta Tiwari"></div><h4>Chesta Tiwari</h4><p>Project Manager</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/PriyanshuChauhan_Analytics_3rd.jpg" alt="Priyanshu Chauhan"></div><h4>Priyanshu Chauhan</h4><p>Project Manager</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Rishita_Rathi_Analytics_3Y.jpg" alt="Rishita Rathi"></div><h4>Rishita Rathi</h4><p>Project Manager</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/surya.jpg" alt="Surya"></div><h4>Surya</h4><p>Project Manager</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Shivna_Product_3Y.jpg" alt="Shivna Rathore"></div><h4>Shivna Rathore</h4><p>Startup & Outreach</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Aman_Product_3y.jpg" alt="Aman Kumar"></div><h4>Aman Kumar</h4><p>Startup & Outreach</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/Shubh_Consult.jpg" alt="Shubh Saxena"></div><h4>Shubh Saxena</h4><p>Startup & Outreach</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/VardayineeSandoo_consult_3y.jpg" alt="Vardayinee"></div><h4>Vardayinee</h4><p>Startup & Outreach</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/TanmayTopkhanewale_Analytics_2025.jpg" alt="Tanmay Topkhanevale"></div><h4>Tanmay Topkhanevale</h4><p>Startup & Outreach</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/amogh" alt="Amogh Kapoor"></div><h4>Amogh Kapoor</h4><p>Startup & Outreach</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    <div class="team-member"><div class="team-photo"><img src="assets/memberpics/poorvi_singhal.jpg" alt="Poorvi Singhal"></div><h4>Poorvi Singhal</h4><p>Design & Media Manager</p><div class="team-socials"><a href="#" target="_blank"><img src="assets/mail1.png" alt="Gmail"></a><a href="#" target="_blank"><img src="assets/github.png" alt="GitHub"></a><a href="#" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a></div></div>
+    
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- Left section -->
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+
+    <!-- Center section -->
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right section -->
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+        <a href="#"><img src="assets/Notion-logo.svg.png" alt="Notion" /></a>
+      </div>
+      <h4>Location:</h4>
+      <div class = "location">
+        <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+    </div> 
+    </div>
+    </div>
+
+
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".toggle-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+      const hiddenMembers = document.querySelectorAll(`#${targetId} .hidden`);
+      
+      hiddenMembers.forEach(member => {
+        member.classList.toggle("hidden");
+      });
+
+      button.textContent = button.textContent === "Show More" ? "Show Less" : "Show More";
+    });
+  });
+});
+
+const fadeElements = document.querySelectorAll('.fade-in-scroll');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target); // animate only once
+      }
+    });
+  }, {
+    threshold: 0.2 // trigger when 20% of the element is visible
+  });
+
+  fadeElements.forEach(el => observer.observe(el));
+</script>
+
+
+</body>
+</html>

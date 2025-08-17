@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+.container {
+    max-width: 100%; /* full width instead of 1200px */
+    padding: 0 1rem; /* reduce left/right padding */
+}
+
+/* === Navbar === */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: transparent;
+      z-index: 999;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: black;
+      text-decoration: none;
+      font-weight: 300;
+      padding-bottom: 4px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: #00c286;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #00c286;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .hamburger-menu {
+      display: none; /* Hidden on desktop */
+      cursor: pointer;
+    }
+    
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+
+.site-footer {
+  background-color: #dcfef0;
+  padding: 60px 0; /* remove side padding */
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* side padding inside centered content */
+}
+
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+.footer-left {
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.footer-left p {
+  font-size: 16px;
+  color: #000;
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-bottom: 30px;
+}
+
+.footer-links h4,
+.footer-socials h4 {
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-socials {
+  margin-bottom: 50px;
+}
+
+.social-icons a {
+  margin: 0 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 40px;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.location p{
+  font-size: 13px;
+  margin-top: 0.5vh;
+}
+/* === RESPONSIVE SPACING ADJUSTMENTS === */
+
+
+    @media (max-width: 992px) { /* Tablet Styles */
+      .navbar {
+        padding: 1rem 2rem;
+      }
+      .hover-effect {
+        font-size: 2.5rem;
+      }
+      .project-card {
+        flex: 0 0 45%; /* Show ~2 cards on tablet */
+      }
+    }
+   @media (max-width: 768px) { /* Mobile Styles */
+      body {
+        background-size: cover; /* Use cover for mobile background */
+      }
+      .navbar {
+        padding: 1rem;
+      }
+      .nav-links {
+        display: none; /* Hide desktop links */
+        position: absolute;
+        right: 0;
+        top: 80px; /* Height of navbar */
+        background: white;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+      .nav-links.active {
+        display: flex; /* Show when active */
+      }
+      .nav-links li {
+        padding: 1rem 0;
+      }
+      .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+      }
+      
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }

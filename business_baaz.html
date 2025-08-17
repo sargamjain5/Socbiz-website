@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Business Baazigar - Product Management Challenge</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    .event-hero {
+      padding: 120px 20px 60px;
+      text-align: center;
+      background: linear-gradient(135deg, #f8fff9 0%, #e8f5e8 100%);
+    }
+
+    .event-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #00c389;
+      margin-bottom: 20px;
+    }
+
+    .event-hero .subtitle {
+      font-size: 1.5rem;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .hero-description {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-description p {
+      font-size: 1.125rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .event-details {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .event-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .info-card:nth-child(3) {
+      grid-column: 1 / -1;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .info-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #00c389;
+    }
+
+    .info-card h3 {
+      color: #00c389;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .info-card p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .competition-description {
+      background: white;
+      padding: 40px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .competition-description h2 {
+      color: #00c389;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .competition-description p {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .timeline-section {
+      background: white;
+      padding: 60px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .timeline-section h2 {
+      text-align: center;
+      color: #00c389;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item {
+      background: white;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-item h4 {
+      color: #00c389;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .timeline-item p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .evaluation-section {
+      background: #ffffff;
+      padding: 60px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .evaluation-section h2 {
+      text-align: center;
+      color: #00c389;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .evaluation-item {
+      background: white;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .evaluation-item h4 {
+      color: #00c389;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .evaluation-item p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .why-participate {
+      background:white;
+      padding: 60px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .why-participate h2 {
+      text-align: center;
+      color: #00c389;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .benefit-item {
+      background: white;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefit-item h4 {
+      color: #00c389;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .benefit-item p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .register-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f9f9f9;
+      color: #333;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .register-section h2 {
+      color: #00c389;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .register-section p {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    .back-home-btn {
+      background: #00c389;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+      transform: translateY(-2px);
+      background: #00a86b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html">Intern Diaries</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="event-hero">
+    <h1>Business Baazigar</h1>
+    <p class="subtitle">Product Management Challenge</p>
+    <div class="hero-description">
+      <p>Curious about how great products are built? Business Baazigar gives you a launchpad into the dynamic world of Product Management through hands-on problem solving and strategic thinking tailored for first-year students.</p>
+    </div>
+  </section>
+
+  <!-- INFO CARDS -->
+  <section class="event-details">
+    <div class="event-info">
+      <div class="info-card">
+        <h3>PM Thinking Framework</h3>
+        <p>Learn core product management skills like problem structuring, user empathy, MVP design, and strategic decision-making through real-world scenarios.</p>
+      </div>
+      <div class="info-card">
+        <h3>First-Year Exclusive</h3>
+        <p>Specially designed for freshers with no prior experience—just bring your ideas, curiosity, and creativity to excel in this challenge.</p>
+      </div>
+      <div class="info-card">
+        <h3>Campus-Wide Impact</h3>
+        <p>Join 500+ participants annually. Network, collaborate, and compete with the brightest minds across all departments at IIT Roorkee.</p>
+      </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <div class="competition-description">
+      <h2>About Business Baazigar</h2>
+      <p>Business Baazigar is the flagship product management challenge hosted by the Society of Business, IIT Roorkee. This week-long competition transforms first-year students into strategic thinkers through real-life product scenarios, innovative ideation, and professional pitching.</p>
+      <p>The event begins with the release of a compelling product challenge that mirrors real-world scenarios faced by leading tech companies and startups. Participants dive deep into user research, problem definition, solution ideation, and prototype development.</p>
+      <p>Through interactive rounds and mentorship-driven feedback, participants explore user research methodologies, problem-solving frameworks, wireframing techniques, and professional pitching—all condensed into one transformative experience that builds foundational PM skills.</p>
+    </div>
+
+    <!-- EVALUATION PARAMETERS -->
+    <div class="evaluation-section">
+      <h2>Evaluation Parameters</h2>
+      
+      <div class="evaluation-item">
+        <h4>Problem Understanding</h4>
+        <p>Demonstrate deep comprehension of user pain points and ability to define the right problem to solve</p>
+      </div>
+      
+      <div class="evaluation-item">
+        <h4>Solution Innovation</h4>
+        <p>Present creative, feasible solutions that are perfectly aligned with identified user needs and market gaps</p>
+      </div>
+      
+      <div class="evaluation-item">
+        <h4>Strategic Thinking</h4>
+        <p>Showcase structured PM mindset through MVP definition, trade-off analysis, and strategic decision-making</p>
+      </div>
+      
+      <div class="evaluation-item">
+        <h4>Presentation Excellence</h4>
+        <p>Deliver compelling pitches with clear articulation, engaging visuals, and persuasive storytelling</p>
+      </div>
+    </div>
+
+    <!-- WHY PARTICIPATE -->
+    <div class="why-participate">
+      <h2>Why Participate in Business Baazigar?</h2>
+      
+      <div class="benefit-item">
+        <h4>Learn by Doing</h4>
+        <p>Gain hands-on exposure to real PM thinking and methodologies early in your college journey</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>Network & Collaborate</h4>
+        <p>Build lasting connections with like-minded peers and tackle high-impact business challenges together</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>Career Advantage</h4>
+        <p>Enhance your resume with demonstrated initiative, leadership, and strategic thinking capabilities</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>Recognition & Rewards</h4>
+        <p>Win exciting prizes, certificates, and potential internship opportunities with partner companies</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>Mentorship Access</h4>
+        <p>Connect with industry professionals and alumni working in top product companies worldwide</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>Industry Exposure</h4>
+        <p>Get insights into product management roles at leading tech companies and startups</p>
+      </div>
+    </div>
+
+    <!-- REGISTRATION -->
+    <div class="register-section">
+      <h2>Think Like a PM. Build Like a Baazigar.</h2>
+      <p>Ready to dive into the exciting world of Product Management? Registrations will be live soon! Whether you're curious about PM roles or committed to building the next big thing, this is your chance to explore Product Management like never before.</p>
+      <p>Stay tuned on our social media channels for registration updates!</p>
+      <button class="back-home-btn" onclick="window.location.href='index.html'">
+        ← Back to Home
+      </button>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+    <!-- Left section -->
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+    <!-- Center section -->
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Right section -->
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+        <a href="#"><img src="assets/Notion-logo.svg.png" alt="Notion" /></a>
+      </div>
+      <h4>Location:</h4>
+      <div class = "location">
+        <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+    </div> 
+    </div>
+    </div>
+
+  </div>
+</footer>
+
+
+</body>
+</html>
+
+

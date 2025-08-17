@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Society of Business</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="js/script.js"></script>
+  
+  <style>
+    /* Assumed Global Variables */
+    :root {
+      --primary-green: #00c16b;
+      --dark-text: #2d3748;
+      --light-text: #718096;
+      --border-color: #e7eaf3;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      padding-top: 80px; /* Space for fixed navbar */
+    }
+
+    /* --- Main Contact Section --- */
+    .contact-section {
+      padding: 80px 20px;
+    }
+    .contact-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .contact-header h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--dark-text);
+    }
+    .contact-header p {
+        font-size: 1.1rem;
+        color: var(--light-text);
+        max-width: 600px;
+        margin: 10px auto 0;
+    }
+
+    /* --- Contact Card Container --- */
+    .contact-container {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0; /* No gap, as the sections will have their own padding */
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    /* --- Form Section --- */
+    .contact-form {
+      padding: 50px;
+    }
+    .contact-form h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--dark-text);
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+    .contact-form .input-group {
+      margin-bottom: 20px;
+    }
+    .contact-form label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: var(--primary-green);
+        box-shadow: 0 0 0 3px rgba(0, 193, 107, 0.15);
+    }
+    .contact-form button {
+      background-color: var(--primary-green);
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .contact-form button:hover {
+      background-color: #00a95e;
+      transform: translateY(-2px);
+    }
+
+    /* --- Info Section --- */
+    .contact-info {
+      background-color: #f8f9fa;
+      padding: 50px;
+      border-left: 1px solid var(--border-color);
+    }
+    .contact-info h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--dark-text);
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+    .info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+    .info-item .icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .info-item .icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--primary-green);
+    }
+    .info-item .details p {
+        margin: 0;
+        line-height: 1.6;
+    }
+    .info-item .details .title {
+        font-weight: 600;
+        color: var(--dark-text);
+    }
+    .info-item .details a {
+        color: var(--primary-green);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .info-item .details a:hover {
+        text-decoration: underline;
+    }
+
+    /* --- Animation --- */
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* --- Responsive Design --- */
+    @media (max-width: 992px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+        .contact-info {
+            border-left: none;
+            border-top: 1px solid var(--border-color);
+        }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html">Intern Diaries</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+  <section class="contact-section">
+    <div class="contact-header fade-in-up">
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear from you. Whether you have a question about our projects, partnerships, or anything else, our team is ready to answer all your questions.</p>
+    </div>
+
+    <div class="contact-container fade-in-up" style="animation-delay: 0.2s;">
+      <!-- Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm">
+            <div class="input-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Kirito" required />
+            </div>
+            <div class="input-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="itsKirito@example.com" required />
+            </div>
+            <div class="input-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Project Collaboration" />
+            </div>
+            <div class="input-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Your message here..." rows="5"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Info -->
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <div class="info-item">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="details">
+                <p class="title">Our Location</p>
+                <p>Student Activity Centre, IIT Roorkee, India – 247667</p>
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="details">
+                <p class="title">Email Us</p>
+                <p><a href="mailto:share@iit.ac.in">share@iit.ac.in</a></p>
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="details">
+                <p class="title">Call Us</p>
+                <p>+91 70175 XXXXX</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/company/society-of-business/posts/?feedView=all"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="https://www.instagram.com/socbiz_iitr/"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="https://github.com/socbiz-iitr"><img src="assets/github.png" alt="GitHub" /></a>
+        <a href="#"><img src="assets/Notion-logo.svg.png" alt="Notion" /></a>
+      </div>
+      <h4>Location:</h4>
+      <div class = "location">
+        <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+    </div> 
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // --- Contact Form Mailto ---
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            const mailtoLink = `mailto:share@iit.ac.in?subject=${encodeURIComponent(subject || 'SocBiz Contact Form')}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+            
+            window.location.href = mailtoLink;
+        });
+    }
+
+    // --- Fade-in on Scroll Animation ---
+    const animatedElements = document.querySelectorAll(".fade-in-up");
+    if (animatedElements.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      animatedElements.forEach(element => {
+        observer.observe(element);
+      });
+    }
+});
+</script>
+</body>
+</html>

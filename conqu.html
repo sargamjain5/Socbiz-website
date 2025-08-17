@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conquest - Consulting Bootcamp</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .event-hero {
+      padding: 120px 20px 60px;
+      text-align: center;
+      background: linear-gradient(135deg, #f8fff9 0%, #e8f5e8 100%);
+    }
+
+    .event-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #00c389;
+      margin-bottom: 20px;
+    }
+
+    .event-hero .subtitle {
+      font-size: 1.5rem;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .event-details {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .event-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #00c389;
+      width: 20vw;
+    }
+
+    .info-card h3 {
+      color: #00c389;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .info-card p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .agenda-section {
+      background: #ffffff;
+      padding: 60px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .agenda-section h2 {
+      text-align: center;
+      color: #00c389;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .agenda-item {
+      background: white;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .agenda-item h4 {
+      color: #00c389;
+      margin-bottom: 10px;
+    }
+
+    .competition-description {
+      background: white;
+      padding: 40px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .competition-description h2 {
+      color: #00c389;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .competition-description p {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .why-participate {
+      background: white;
+      padding: 60px 20px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .why-participate h2 {
+      text-align: center;
+      color: #00c389;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .benefit-item {
+      background: white;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefit-item h4 {
+      color: #00c389;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .benefit-item p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/Society.png" alt="Society of Business Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="blogs.html">Intern Diaries</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="event-hero">
+    <h1>Conquest</h1>
+    <p class="subtitle">Flagship Consulting Competition</p>
+    <p>Simulate real-world problem-solving scenarios and showcase your strategic thinking and analytical prowess</p>
+  </section>
+
+  <section class="event-details">
+    <div class="event-info">
+      <div class="info-card">
+        <h3>🎯 Competition Overview</h3>
+        <p>Real-world business problem statements crafted to reflect the complexity of actual consulting assignments</p>
+      </div>
+      
+      <div class="info-card">
+        <h3>👥 Participation</h3>
+        <p>400-500 students participate annually, making it one of the most engaging consulting events on campus</p>
+      </div>
+      
+      <div class="info-card">
+        <h3>🏆 Format</h3>
+        <p>Multiple rigorous rounds with increasing complexity, filtering the most promising problem-solvers</p>
+      </div>
+    </div>
+
+    <div class="competition-description">
+      <h2>About Conquest</h2>
+      <p>Conquest is the flagship consulting competition organized by our club, designed to simulate real-world problem-solving scenarios and provide a platform for students to showcase their strategic thinking and analytical prowess.</p>
+      
+      <p>The event kicks off with the release of a challenging, real-world business problem statement, carefully crafted to reflect the complexity and depth of actual consulting assignments. Participants are required to dive deep into research, structure their thoughts, and propose innovative, data-driven solutions.</p>
+      
+      <p>With over 400–500 students participating each year, Conquest stands as one of the most engaging and competitive consulting events on campus. The competition unfolds through multiple rigorous rounds, each evaluating participants on critical consulting parameters.</p>
+    </div>
+
+    <div class="agenda-section">
+      <h2>Evaluation Parameters</h2>
+      
+      <div class="agenda-item">
+        <h4>🔍 Problem Structuring</h4>
+        <p>How logically and efficiently the participants break down and approach the problem</p>
+      </div>
+      
+      <div class="agenda-item">
+        <h4>📊 Market and Data Analysis</h4>
+        <p>Ability to leverage data, draw insights, and support recommendations with evidence</p>
+      </div>
+      
+      <div class="agenda-item">
+        <h4>🧠 Strategic Thinking</h4>
+        <p>Quality, feasibility, and impact of the solutions proposed</p>
+      </div>
+      
+      <div class="agenda-item">
+        <h4>🎤 Presentation and Communication</h4>
+        <p>How effectively the ideas are communicated through slides and verbal delivery</p>
+      </div>
+    </div>
+
+    <div class="why-participate">
+      <h2>Why Participate in Conquest?</h2>
+      
+      <div class="benefit-item">
+        <h4>🔍 Real Consulting Experience</h4>
+        <p>Work on live-style business cases modeled after real consulting engagements</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>📈 Skill Development</h4>
+        <p>Sharpen skills in problem-solving, structured thinking, market research, and storytelling with data</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>🧠 Peer Learning</h4>
+        <p>Collaborate with driven individuals and gain exposure to diverse approaches</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>🧾 CV Building</h4>
+        <p>A strong addition to your portfolio for consulting and business roles</p>
+      </div>
+      
+      <div class="benefit-item">
+        <h4>🏆 Recognition & Rewards</h4>
+        <p>Stand a chance to win exciting prizes, receive feedback from industry experts, and earn campus-wide recognition</p>
+      </div>
+    </div>
+
+</section>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Left section -->
+    <div class="footer-left">
+      <img src="assets/socbizLogo.png" alt="SB Logo" class="footer-logo" />
+      <p>Empowering students with the knowledge, skills, and network to thrive in the world of business and strategy.</p>
+    </div>
+    <!-- Center section -->
+    <div class="footer-links">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Right section -->
+    <div class="footer-socials">
+      <h4>Follow us:</h4>
+      <div class="social-icons">
+        <a href="#"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="assets/Instagram.png" alt="Instagram" /></a>
+        <a href="#"><img src="assets/github.png" alt="GitHub" /></a>
+        <a href="#"><img src="assets/Notion-logo.svg.png" alt="Notion" /></a>
+      </div>
+      <h4>Location:</h4>
+      <div class = "location">
+        <p>Student Activity Centre Ground Floor, IIT Roorkee,<br>Uttarakhand, India – 247667</p>
+    </div> 
+    </div>
+    </div>
+
+  </div>
+</footer>
+
+
+</body>
+</html>
