@@ -103,7 +103,7 @@ html, body {
 
 .site-footer {
   background-color: #dcfef0;
-  padding: 60px 0; /* remove side padding */
+  padding-top: 60px; /* Only applies padding to the top */
   width: 100%;
 }
 
@@ -166,9 +166,7 @@ html, body {
   text-decoration: underline;
 }
 
-.footer-socials {
-  margin-bottom: 50px;
-}
+
 
 .social-icons a {
   margin: 0 8px;
@@ -176,10 +174,11 @@ html, body {
   transition: transform 0.3s ease;
 }
 
+
 .social-icons img {
   width: 30px;
   height: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .social-icons a:hover {
@@ -190,6 +189,54 @@ html, body {
   font-size: 13px;
   margin-top: 0.5vh;
 }
+
+/* --- Footer Credits / Developed By Section --- */
+.footer-credits {
+  text-align: center;
+  padding: 15px;
+  background-color: #00b073; /* A slightly more standard green */
+  color: #ffffff;
+  font-size: 0.8rem; /* Slightly larger for better readability */
+  line-height: 1.4;
+}
+
+.footer-credits p {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* Allows names to wrap neatly on smaller screens */
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* Adds consistent spacing between items */
+}
+
+/* Style for the "Developed by:" label */
+.footer-credits .label {
+  font-weight: 300; /* Lighter font weight */
+  opacity: 0.8;
+  margin-right: 8px;
+}
+
+/* Style for the names */
+.footer-credits a {
+  color: #ffffff;
+  font-weight: 500; /* Bolder than the label */
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent; /* Prepare for hover effect */
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for the names */
+.footer-credits a:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.7); /* Underline on hover */
+  transform: translateY(-1px);
+}
+
+/* Style for the bullet point separators */
+.footer-credits .separator {
+  opacity: 0.5;
+}
+
 /* === RESPONSIVE SPACING ADJUSTMENTS === */
 
 
