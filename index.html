@@ -162,168 +162,211 @@
     }
     
     /* === Stats Section === */
-    .stats-section {
-      padding: 5rem 0;
-    }
-
-    .stats-grid {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 3rem;
-    }
-
-    .stat-card {
-      background: #ffffff;
-      padding: 2.5rem 2rem;
-      border-radius: 12px;
-      text-align: center;
-      border: 1px solid #e7eaf3;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-      flex: 1;
-      min-width: 280px;
-      max-width: 320px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 30px rgba(0, 193, 107, 0.12);
-    }
-
-    .stat-card--highlight {
-      border: 2px solid #00c16b;
-      box-shadow: 0 8px 25px rgba(0, 193, 107, 0.08);
-    }
-
-    .stat-icon {
-      margin-bottom: 1rem;
-      color: #00c16b;
-    }
-    .stat-icon svg {
-        stroke-width: 1.5;
-    }
-
-    .stat-number {
-      font-size: 4.5rem;
-      font-weight: 700;
-      color: #2d3748;
-      line-height: 1.1;
-    }
-
-    .stat-label {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #718096;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-top: 0.5rem;
-    }
-
-    /* === Projects Section === */
-/* === Projects Section (Clean White Design) === */
-        .projects-section-glass {
-            padding: 80px 20px;
-            background-color: #ffffff; /* Set background to white */
-            font-family: 'Poppins', sans-serif;
+       /* === Stats Section === */
+        .stats-section {
+          padding: 5rem 0;
         }
 
-        .projects-section-glass .container {
-            position: relative;
-            z-index: 2;
+        .stats-grid {
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          flex-wrap: wrap;
+          margin-top: 3rem;
         }
 
-        .projects-section-glass .section-header {
-            text-align: center;
-            margin-bottom: 50px;
+        .stat-card {
+          background: #ffffff;
+          padding: 2.5rem 2rem;
+          border-radius: 12px;
+          text-align: center;
+          border: 1px solid #e7eaf3;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+          flex: 1;
+          min-width: 280px;
+          max-width: 320px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Updated text colors for light background */
-        .projects-section-glass .section-title {
-            color: #2c3e50; /* Dark color for title */
-            margin-bottom: 10px;
+        .stat-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
         }
 
-        .projects-section-glass .section-subtitle {
-            color: #7f8c8d; /* Medium grey for subtitle */
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
+        /* Highlighted card is now green */
+        .stat-card--highlight {
+          background-color: #00c16b;
+          border-color: #00c16b;
+          box-shadow: 0 8px 25px rgba(0, 193, 107, 0.15);
         }
 
-        .projects-grid-glass {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+        /* Change contents of highlighted card to white for contrast */
+        .stat-card--highlight .stat-number,
+        .stat-card--highlight .stat-label,
+        .stat-card--highlight .stat-icon {
+          color: #ffffff;
         }
-
-        /* Updated Card Style for Light Background */
-        .project-card-glass {
-            background: #f8f9fa; /* Light grey card background */
-            border-radius: 16px;
-            border: 1px solid #e2e8f0; /* Subtle border */
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card-glass:hover {
+        
+        .stat-card--highlight:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 30px rgba(0, 193, 107, 0.25);
         }
 
-        .project-card-glass .project-logo {
-            height: 70px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .stat-icon {
+          margin-bottom: 1rem;
+          color: #00c16b;
+        }
+        .stat-icon svg {
+            stroke-width: 1.5;
         }
 
-        .project-card-glass .project-logo img {
-            max-height: 55px;
-            object-fit: contain;
+        .stat-number {
+          font-size: 4.5rem;
+          font-weight: 700;
+          color: #2d3748;
+          line-height: 1.1;
         }
 
-        .project-card-glass .project-logo svg {
-            stroke: #00c16b; /* Green icon for the last card */
+        .stat-label {
+          font-size: 1rem;
+          font-weight: 500;
+          color: #718096;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          margin-top: 0.5rem;
         }
+    /* === Projects Section === */
 
-        /* Updated text colors for visibility on light cards */
-        .project-card-glass h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin: 0 0 15px 0;
-            color: #2c3e50; /* Dark text */
-        }
+       .projects-section-glass {
+    padding: 80px 0; /* Changed horizontal padding to 0 */
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
 
-        .project-card-glass p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #4a5568; /* Medium-dark grey text */
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
+.projects-section-glass .container {
+    position: relative;
+    z-index: 2;
+    /* Added for proper padding on smaller screens */
+    padding: 0 20px;
+}
 
-        /* Updated link style for contrast */
-        .card-link {
-            display: inline-block;
-            background-color: #00c16b;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
+.projects-section-glass .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
 
-        .card-link:hover {
-            background-color: #00a75c;
-        }
+.projects-section-glass .section-title {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.projects-section-glass .section-subtitle {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* === MODIFICATIONS START HERE === */
+
+.projects-grid-glass {
+    display: flex; /* 1. Change display to flex */
+    overflow-x: auto; /* 2. Enable horizontal scrolling */
+    gap: 25px;
+    /* Add padding to prevent content clipping and scrollbar overlap */
+    padding: 10px 20px;
+    margin: 0 -20px; /* Counteract container padding to allow full-bleed scroll */
+    scroll-snap-type: x mandatory; /* Optional: for a smooth snapping effect */
+}
+
+/* Style the scrollbar for a cleaner look (for Webkit browsers) */
+.projects-grid-glass::-webkit-scrollbar {
+    height: 8px;
+}
+
+.projects-grid-glass::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.projects-grid-glass::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.projects-grid-glass::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+.project-card-glass {
+    background: #f8f9fa;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    
+    /* 3. Set a fixed width for each card */
+    flex: 0 0 300px; /* Prevents cards from shrinking */
+    scroll-snap-align: start; /* Optional: Aligns cards to the start on snap */
+}
+
+/* === MODIFICATIONS END HERE === */
+
+.project-card-glass:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-card-glass .project-logo {
+    height: 70px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card-glass .project-logo img {
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.project-card-glass .project-logo svg {
+    stroke: #00c16b;
+}
+
+.project-card-glass h4 { /* Changed from h3 to match your new card HTML */
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+}
+
+.project-card-glass p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a5568;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.card-link {
+    display: inline-block;
+    background-color: #00c16b;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.card-link:hover {
+    background-color: #00a75c;
+}
 
     /* === Testimonials Section === */
     .testimonials-section {
@@ -696,7 +739,14 @@
         
         <div class="projects-grid-glass">
 
-            <!-- Tvelp Project Card -->
+            <div class="project-card-glass">
+                <div class="project-logo">
+                    <img src="assets/logos/crowwd.png" alt="Crowwd Logo" />
+                </div>
+                <p>Devised a Go-To-Market strategy for financial content platform Crowwd, targeting engineering students with personalized onboarding and tailored content feeds.</p>
+                <a href="crowwd.html" class="card-link">View Project</a>
+            </div>
+
             <div class="project-card-glass">
                 <div class="project-logo">
                     <img src="assets/Tvelp.png" alt="Tvelp Logo" />
@@ -705,7 +755,6 @@
                 <a href="tvelp.html" class="card-link">View Project</a>
             </div>
 
-            <!-- Coversure Project Card -->
             <div class="project-card-glass">
                 <div class="project-logo">
                     <img src="assets/Coversure.png" alt="Coversure Logo" />
@@ -714,7 +763,6 @@
                 <a href="coversure.html" class="card-link">View Project</a>
             </div>
 
-            <!-- Saint Gobain Project Card -->
             <div class="project-card-glass">
                 <div class="project-logo">
                     <img src="assets/ SaintGobain.png" alt="Saint Gobain Logo" />
@@ -723,16 +771,16 @@
                 <a href="#" class="card-link">View Project</a>
             </div>
           
-            <!-- Criminal Investigation Project Card -->
             <div class="project-card-glass">
                 <div class="project-logo">
-                    <!-- Using an SVG icon instead of an image -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
                 </div>
                 <h4>Criminal Investigation Automation</h4>
                 <p>Leveraged data and automation for real-world applications in public safety in partnership with academic and industry experts.</p>
                 <a href="#" class="card-link">View Project</a>
             </div>
+            
+
 
         </div>
     </div>
@@ -901,28 +949,35 @@
     </div>
   </footer>
 
-  <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    
+    /* === Navbar scroll effect === */
+    const navbar = document.querySelector('.navbar');
+    // Check if navbar exists to prevent errors on pages without it
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+    }
 
-    // Hamburger menu toggle
+    /* === Hamburger menu toggle === */
     const hamburger = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
+    // Check if both elements exist
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    // Stats counter animation
-    document.addEventListener("DOMContentLoaded", () => {
-      const counters = document.querySelectorAll(".stat-number");
+    /* === Stats counter animation === */
+    const counters = document.querySelectorAll(".stat-number");
+    if (counters.length > 0) {
       const speed = 200; // Animation speed
 
       const animateCounter = (counter) => {
@@ -932,14 +987,14 @@
           const increment = target / speed;
           if (count < target) {
             counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, 1);
+            setTimeout(updateCount, 10);
           } else {
             counter.innerText = target + "+";
           }
         };
         updateCount();
       };
-      
+
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -948,45 +1003,48 @@
           }
         });
       }, { threshold: 0.5 });
-      
-      counters.forEach(counter => observer.observe(counter));
-    });
 
-    // Testimonials marquee duplication for seamless loop
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
+    }
+
+    /* === Testimonials marquee duplication === */
     const scroller = document.querySelector(".testimonials-scroller");
     if (scroller) {
       const track = scroller.querySelector(".scroller-track");
       const items = Array.from(track.children);
       items.forEach(item => {
         const clone = item.cloneNode(true);
+        // Add an attribute to distinguish clones for screen readers or CSS
+        clone.setAttribute('aria-hidden', true);
         track.appendChild(clone);
       });
     }
-  </script>
-<script>
-    // JavaScript for the 3D Hover Effect
-    document.addEventListener("DOMContentLoaded", function() {
-        const cards = document.querySelectorAll('.trophy-card');
 
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
+    /* === 3D Hover Effect for Trophy Cards === */
+    const cards = document.querySelectorAll('.trophy-card');
+    if (cards.length > 0) {
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
 
-                const rotateX = -y / 20; // Control tilt intensity
-                const rotateY = x / 20;
+          const rotateX = -y / 20;
+          const rotateY = x / 20;
 
-                card.style.setProperty('--rotate-x', `${rotateX}deg`);
-                card.style.setProperty('--rotate-y', `${rotateY}deg`);
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.setProperty('--rotate-x', '0deg');
-                card.style.setProperty('--rotate-y', '0deg');
-            });
+          card.style.setProperty('--rotate-x', `${rotateX}deg`);
+          card.style.setProperty('--rotate-y', `${rotateY}deg`);
         });
-    });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.setProperty('--rotate-x', '0deg');
+          card.style.setProperty('--rotate-y', '0deg');
+        });
+      });
+    }
+  });
 </script>
 </body>
 </html>
